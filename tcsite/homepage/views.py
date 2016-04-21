@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
-from .models import Carousel
+from .models import CarouselObj
 
 
 def homepage(request):
-    images = Carousel.objects.all()
+    images = CarouselObj.objects.all()
     context = {'images':images}
     #print(context['images'][0].image.url)
     return render(request,'homepage/index.html', context)

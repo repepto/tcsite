@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from .models import Carousel
+from .models import CarouselObj
+from adminsortable.admin import SortableAdmin
 
+#from .models import CarouselObj
 
-admin.site.register(Carousel)
+class SortableAdminClass(SortableAdmin):
+    """Any admin options you need go here"""
+
+admin.site.register(CarouselObj, SortableAdminClass)

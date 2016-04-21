@@ -32,6 +32,18 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        htmlmin: {                                     // Task
+            dist: {                                      // Target
+              options: {                                 // Target options
+                removeComments: true,
+                collapseWhitespace: true
+              },
+              files: {                                   // Dictionary of files
+                'templates/tcsite/index.html': '_html/_tcsite_index.html',     // 'destination': 'source'
+                'homepage/templates/homepage/index.html': '_html/index.html'
+              }
+            }
+        },
         'watch': {
             scripts: {
                 files: ['_js/*.js','js/jquery/*.js'],
@@ -43,6 +55,13 @@ module.exports = function(grunt) {
             css: {
                 files: ['_css/*.css'],
                 tasks: ['cssmin'],
+                options: {
+                    spawn: false,
+                },
+            },
+            html: {
+                files: ['_html/*.html'],
+                tasks: ['htmlmin'],
                 options: {
                     spawn: false,
                 },
@@ -60,6 +79,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-yui-compressor');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-    grunt.registerTask('default', ['min', 'cssmin', 'imagemin']);
+    grunt.registerTask('default', ['min', 'cssmin', 'imagemin', 'htmlmin']);
 };

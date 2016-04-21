@@ -27,11 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.core.context_processors.static',
+]
 
 # Application definition
 
 INSTALLED_APPS = [
     'homepage',
+    'adminsortable',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,7 +60,9 @@ ROOT_URLCONF = 'tcsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [
+            os.path.join(BASE_DIR, '../templates')
+        ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
