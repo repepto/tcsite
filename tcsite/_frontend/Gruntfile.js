@@ -8,13 +8,13 @@ module.exports = function(grunt) {
         'min': {
             'dist': {
                 'src': ['_js/jquery/*.js','_js/*.js'],
-                'dest': 'assets/scripts.min.js'
+                'dest': '../assets/scripts.min.js'
             }
         },
         'cssmin': {
             'dist': {
                 'src': ['_css/*.css'],
-                'dest': 'assets/styles.min.css'
+                'dest': '../assets/styles.min.css'
             }
         },
         'imagemin': {
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '_imgs/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'assets/images/'
+                    dest: '../assets/images/'
                 }]
             }
         },
@@ -39,8 +39,14 @@ module.exports = function(grunt) {
                 collapseWhitespace: true
               },
               files: {                                   // Dictionary of files
-                'templates/tcsite/index.html': '_html/_tcsite_index.html',     // 'destination': 'source'
-                'homepage/templates/homepage/index.html': '_html/index.html'
+                  '../templates/tcsite/index.html': '_html/tcsite/index.html',     // 'destination': 'source'
+                  '../templates/tcsite/carousel.html': '_html/tcsite/carousel.html',
+                  '../templates/tcsite/footer.html': '_html/tcsite/footer.html',
+                  '../games/templates/games/games.html': '_html/games.html',
+                  '../about/templates/about/about.html': '_html/about.html',
+                  '../blog/templates/blog/blog.html': '_html/blog.html',
+                  '../contact/templates/contact/contact.html': '_html/contact.html',
+                  '../homepage/templates/homepage/home.html': '_html/home.html',
               }
             }
         },
@@ -60,7 +66,7 @@ module.exports = function(grunt) {
                 },
             },
             html: {
-                files: ['_html/*.html'],
+                files: ['_html/*.html', '_html/tcsite/*.html'],
                 tasks: ['htmlmin'],
                 options: {
                     spawn: false,

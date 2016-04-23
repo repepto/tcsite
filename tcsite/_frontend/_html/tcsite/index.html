@@ -7,13 +7,16 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Stone - Portfolio template</title>
+	<title>tabletcrushers game design studio</title>
 
 	<!-- Favicons -->
 	<link rel="shortcut icon" href="assets/images/favicon.png">
 	<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
 
 	<link href="{% static 'styles.min.css' %}" rel="stylesheet">
 </head>
@@ -34,7 +37,7 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="../home.html">
 
 					<img class="light-logo" src="{% static 'images/logo.png' %}" width="132" alt="">
 				</a>
@@ -85,12 +88,13 @@
 				<a href="#" target="_blank" class="fa fa-dribbble dribbble"></a>
 			</div>
 
-			<p>© 2016 tabletcrushers</p>
+			<p>&copy; 2016 tabletcrushers</p>
 		</div>
     </div>
 
-
-    {%  block content %}{% endblock %}
+    <div class="wrapper">
+        {%  block content %}{% endblock %}
+    </div>
 
 
     <script src="{% static 'scripts.min.js' %}"></script>

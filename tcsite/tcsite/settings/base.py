@@ -27,14 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-TEMPLATE_CONTEXT_PROCESSORS = [
-    'django.core.context_processors.static',
-]
-
 # Application definition
 
 INSTALLED_APPS = [
     'homepage',
+    'games',
+    'admin_reorder',
     'adminsortable',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -53,6 +51,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'admin_reorder.middleware.ModelAdminReorder',
 ]
 
 ROOT_URLCONF = 'tcsite.urls'
@@ -143,3 +142,9 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+
+ADMIN_REORDER = [
+    #'auth',
+    'homepage',
+    'games',
+]
