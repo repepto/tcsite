@@ -15,7 +15,7 @@ class SortableAdminClass(SortableAdmin):
         ('Preview image: 800x600', {'fields' : ['preview_image']}),
         ('Promo image: 1000x600', {'fields' : ['promo_image']}),
         (None, {'fields' : ['name']}),
-        (None, {'fields' : ['slogane']}),
+        (None, {'fields' : ['slogan']}),
         (None, {'fields' : ['top_title']}),
         (None, {'fields' : ['top_description_italic']}),
         (None, {'fields' : ['top_description']}),

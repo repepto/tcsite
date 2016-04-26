@@ -21,6 +21,7 @@ from django.views.static import serve
 urlpatterns = [
     url(r'^', include('homepage.urls')),
     url(r'^games/', include('games.urls')),
+    url(r'^contacts/', include('contacts.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]

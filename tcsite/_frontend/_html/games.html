@@ -32,13 +32,13 @@
 						<article class="work-item travel video">
 							<div class="work-wrapper">
 								<div class="work-thumbnail">
-									<img src="{{ el }}" alt="">
+									<img src="{{ el.url }}" alt="">
 								</div>
 								<div class="work-caption">
-									<h3 class="work-title font-alt">Montures</h3>
-									<span class="work-category font-serif"><a href="#">Travel, Video</a></span>
+									<h3 class="work-title font-alt">{{ el.name }}</h3>
+									<span class="work-category font-serif"><a href="{{ el.name }}">{{ el.slogan }}</a></span>
 								</div>
-								<a href="portfolio-single-1.html" class="work-link"></a>
+								<a href="{{ el.name }}" class="work-link"></a>
 							</div>
 						</article>
 

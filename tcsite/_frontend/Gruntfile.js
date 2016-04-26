@@ -43,9 +43,10 @@ module.exports = function(grunt) {
                   '../templates/tcsite/carousel.html': '_html/tcsite/carousel.html',
                   '../templates/tcsite/footer.html': '_html/tcsite/footer.html',
                   '../games/templates/games/games.html': '_html/games.html',
+                  '../games/templates/games/game.html': '_html/game.html',
                   '../about/templates/about/about.html': '_html/about.html',
                   '../blog/templates/blog/blog.html': '_html/blog.html',
-                  '../contact/templates/contact/contact.html': '_html/contact.html',
+                  '../contacts/templates/contacts/contacts.html': '_html/contacts.html',
                   '../homepage/templates/homepage/home.html': '_html/home.html',
               }
             }

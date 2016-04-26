@@ -6,7 +6,7 @@ class Game(SortableMixin):
     preview_image = models.ImageField()
     promo_image = models.ImageField()
     name=models.CharField(max_length=49, default='')
-    slogane=models.CharField(max_length=49, default='')
+    slogan=models.CharField(max_length=49, default='')
     top_title=models.CharField(max_length=49, default='')
     top_description_italic=models.TextField(default='')
     top_description=models.TextField(default='')

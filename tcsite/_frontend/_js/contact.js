@@ -1,52 +1,43 @@
 (function($){
+    $.fn.extend({
+        center: function ()
+        {
+            return this.each(function()
+            {
+                var top = $(document).scrollTop() - 56;
+                var left = ($(this).parent().width() - $(this).outerWidth()) / 2;
+                $(this).css
+                ({
+                    position: 'absolute',
+                    margin: 0,
+                    top: top + 'px',
+                    left: (left > 0 ? left : 0) + 'px'
+                });
 
-	$(document).ready(function() {
-
-		/* ---------------------------------------------- /*
-		 * Contact form ajax
-		/* ---------------------------------------------- */
-
-		$('#contact-form').find('input,textarea').jqBootstrapValidation({
-			preventSubmit: true,
-			submitError: function($form, event, errors) {
-				// additional error messages or events
-			},
-			submitSuccess: function($form, event) {
-				event.preventDefault();
-
-				var submit          = $('#contact-form submit');
-				var ajaxResponse    = $('#contact-response');
-
-				var name            = $("input#name").val();
-				var email           = $("input#email").val();
-				var message         = $("textarea#message").val();
-
-				$.ajax({
-					type: 'POST',
-					url: 'assets/php/contact.php',
-					dataType: 'json',
-					data: {
-						name: name,
-						email: email,
-						message: message,
-					},
-					cache: false,
-					beforeSend: function(result) {
-						submit.empty();
-						submit.append('<i class="fa fa-cog fa-spin"></i> Wait...');
-					},
-					success: function(result) {
-						if(result.sendstatus == 1) {
-							ajaxResponse.html(result.message);
-							$form.fadeOut(500);
-						} else {
-							ajaxResponse.html(result.message);
-						}
-					}
-				});
-			}
-		});
-
-	});
-
+                $(this).animate({ top: top + 56 }, 4700);
+            });
+        }
+    });
 })(jQuery);
+
+$(window).load(function() {
+    $('#sendResult').center();
+});
+
+$('#contact-form').submit(function () {
+    alert('aaaaaa1234567');
+    $.ajax({
+        type: frm.attr('method'),
+        url: frm.attr('action'),
+        data: frm.serialize(),
+        success: function (data) {
+            $("#SOME-DIV").html(data);
+            alert('aaaaaaaaaaaaa');
+        },
+        error: function(data) {
+            $("#MESSAGE-DIV").html("Something went wrong!");
+            alert('aaaaaaaaaaaaa');
+        }
+    });
+    return false;
+});

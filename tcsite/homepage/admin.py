@@ -1,7 +1,8 @@
 from django.contrib import admin
 
-from .models import CarouselObj
 from adminsortable.admin import SortableAdmin
+
+from .models import CarouselObj
 
 #from .models import CarouselObj
 

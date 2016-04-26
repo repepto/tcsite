@@ -223,7 +223,7 @@
 				marker: {
 					address: GMaddress,
 					options: {
-						icon: 'assets/images/map-icon.png'
+						icon: '../static/images/map-icon.png'
 					}
 				},
 				map: {
