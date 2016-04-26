@@ -1818,6 +1818,6 @@ blockquote cite{
     padding: 21px 21px 0px 21px;
     text-align: center;
 	margin:0 auto;
-
+	display: none;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
