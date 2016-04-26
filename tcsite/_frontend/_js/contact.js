@@ -25,18 +25,16 @@ $(window).load(function() {
 });
 
 $('#contact-form').submit(function () {
-    alert('aaaaaa1234567');
+    alert($(this).serialize());
     $.ajax({
-        type: frm.attr('method'),
-        url: frm.attr('action'),
-        data: frm.serialize(),
+        type: $(this).attr('method'),
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
         success: function (data) {
-            $("#SOME-DIV").html(data);
-            alert('aaaaaaaaaaaaa');
+            alert(data);
         },
         error: function(data) {
-            $("#MESSAGE-DIV").html("Something went wrong!");
-            alert('aaaaaaaaaaaaa');
+            alert('Something went wrong!');
         }
     });
     return false;
