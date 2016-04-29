@@ -1,13 +1,14 @@
-from django.db import models
+﻿from django.db import models
 from adminsortable.models import SortableMixin
 
 
-class CarouselObj(SortableMixin):
+class CarouselObj(models.Model):
     image = models.ImageField()
-    toptitle=models.CharField(max_length=49, default='game design company')
-    middletitle=models.CharField(max_length=49, default='tabletcrushers')
-    bottomtitle=models.CharField(max_length=49, default='have fun, folks')
-    buttontitle=models.CharField(max_length=49, default='')
+    toptitle=models.CharField(max_length=49,blank=True)
+    middletitle=models.CharField(max_length=49, default='мастерская №8')
+    bottomtitle=models.CharField(max_length=49, blank=True)
+    buttontitle=models.CharField(max_length=49, blank=True)
+    href=models.CharField(max_length=49, blank=True)
 
     class Meta:
         verbose_name = 'CarouselObj'

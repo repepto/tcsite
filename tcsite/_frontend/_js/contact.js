@@ -11,14 +11,14 @@
                 ({
                     position: 'absolute',
                     margin: 0,
-                    top: top + 'px',
+                    top: (top - 70) + 'px',
                     left: (left > 0 ? left : 0) + 'px',
                     opacity:0,
                     display:'block'
                 });
 
-                $(this).animate({ opacity:1 }, 700, function () {
-                     $(this).delay(2000).animate({ opacity:0 }, 700, function () {
+                $(this).animate({ opacity:1, top:top + 'px' }, 700, function () {
+                     $(this).delay(2000).animate({ opacity:0, top:(top - 70) + 'px' }, 700, function () {
                          $(this).css({display:'none'})
                      });
                 });
@@ -39,20 +39,12 @@
 				var submit          = $('#contact-form submit');
 				var ajaxResponse    = $('#contact-response');
 
-				var name            = $("input#name").val();
-				var email           = $("input#email").val();
-				var message         = $("textarea#message").val();
-
 				$.ajax({
 					type: 'POST',
-					url: '/contacts/send',
+					url: 'send',
 					dataType: 'json',
-					data: {
-						name: name,
-						email: email,
-						message: message,
-					},
-					
+					data: $('#contact-form').serialize(),
+
 					beforeSend: function(result) {
 						submit.empty();
 						submit.append('<i class="fa fa-cog fa-spin"></i> Wait...');
@@ -62,8 +54,11 @@
 							ajaxResponse.html(result.message);
 							$form.fadeOut(500);
                             $('#sendResult').sendPopup();
+							$('#sendMessage').text('error');
 						} else {
 							ajaxResponse.html(result.message);
+							$('#sendResult').sendPopup();
+							$('#sendMessage').text('sent');
 						}
 					}
 				});

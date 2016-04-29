@@ -41,10 +41,11 @@ module.exports = function(grunt) {
               files: {                                   // Dictionary of files
                   '../templates/tcsite/index.html': '_html/tcsite/index.html',     // 'destination': 'source'
                   '../templates/tcsite/carousel.html': '_html/tcsite/carousel.html',
+                  '../templates/tcsite/top_img.html': '_html/tcsite/top_img.html',
                   '../templates/tcsite/footer.html': '_html/tcsite/footer.html',
+                  '../about/templates/about/about.html': '_html/about.html',
                   '../games/templates/games/games.html': '_html/games.html',
                   '../games/templates/games/game.html': '_html/game.html',
-                  '../about/templates/about/about.html': '_html/about.html',
                   '../blog/templates/blog/blog.html': '_html/blog.html',
                   '../contacts/templates/contacts/contacts.html': '_html/contacts.html',
                   '../homepage/templates/homepage/home.html': '_html/home.html',

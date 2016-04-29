@@ -1,8 +1,10 @@
-{% extends "tcsite/index.html" %}
+﻿{% extends "tcsite/index.html" %}
+
+{%  block a4 %}<li class="currentPage">Contacts</li>{%  endblock %}
 
 {%  block content %}
 <section class="module-map">
-    <div id="map" data-address="Автозаводская 41. Киев. Украина"></div>
+    <div id="map" data-address="Дубровицкая 8. Киев. Украина."></div>
 </section>
 
 <!-- CONTACT -->
@@ -12,8 +14,8 @@
 				<!-- MODULE TITLE -->
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
-						<h2 class="module-title font-alt">Let’s talk</h2>
-						<p class="module-subtitle">A collection of textile samples lay spread out on the table – Samsa was a travelling salesman – and above it there hung a picture that he had recently cut.</p>
+						<h2 class="module-title font-alt">Let's talk</h2>
+						<p class="module-subtitle">A collection of textile samples lay spread out on the table вЂ“ Samsa was a travelling salesman вЂ“ and above it there hung a picture that he had recently cut.</p>
 					</div>
 				</div>
 				<!-- /MODULE TITLE -->
@@ -84,11 +86,12 @@
 
     <div id="sendResult">
 
-        <h6>succesfull</h6>
+        <h6 id="sendMessage">succesfull</h6>
 
     </div>
+    {% include "tcsite/footer.html" %}
 {% endblock %}
 
 {% block addJs %}
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyAa4FXfzaE5qIDdhRt9hauUan0OEUN5Epk"></script>
 {% endblock %}

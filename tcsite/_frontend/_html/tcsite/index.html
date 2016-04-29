@@ -1,4 +1,4 @@
-{% load staticfiles %}
+﻿{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +15,8 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,400italic,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,400italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
 	<link href="{% static 'styles.min.css' %}" rel="stylesheet">
 </head>
@@ -47,21 +47,23 @@
 
 				<ul class="nav navbar-nav">
 
-					<li><a href="about.html">Home</a></li>
+					{%  block a0 %}
+                    <li><a href="/">home</a></li>
+                    {%  endblock %}
 
-					<li class="currentPage">About</li>
-
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
+                     <li class="dropdown">
+						<a href="/games" class="dropdown-toggle" data-toggle="dropdown"{%  block a1 %}{%  endblock %}>games</a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="blog.html">Standard</a></li>
-							<li><a href="blog-single.html">Single post</a></li>
-							<li><a href="blog-single-2.html">Single post - Video</a></li>
+                            <li><a href="/games">all</a></li>
+                            {% for tag in tags %}
+							<li><a href="/games/_{{ tag }}">{{ tag }}</a></li>
+                            {% endfor %}
 						</ul>
 					</li>
 
+                    {%  block a2 %}
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Games</a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">blog</a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="portfolio-single.html">Single Work 1</a></li>
 							<li><a href="portfolio-single-2.html">Single Work 2</a></li>
@@ -71,8 +73,15 @@
 							<li><a href="portfolio-single-6.html">Single Work 6 & Gallery</a></li>
 						</ul>
 					</li>
+                    {% endblock %}
 
-					<li><a href="contact.html">Contact</a></li>
+                    {%  block a3 %}
+                    <li><a href="/about">about</a></li>
+                    {%  endblock %}
+
+					{%  block a4 %}
+                        <li><a href="/contacts">contacts</a></li>
+                    {%  endblock %}
 
 				</ul>
 			</div>

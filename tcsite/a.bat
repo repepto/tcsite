@@ -13,8 +13,8 @@ if "%choice%"=="0" (
     python -m smtpd -n -c DebuggingServer localhost:25
 )
 if "%choice%"=="1" (
-    REM E:\prj\Web\!virtual_environments\tabletcrushers\Scripts\activate.bat
-    J:\prj\web\!virtualenvs\tcsite\Scripts\activate.bat
+    E:\prj\Web\!virtual_environments\tabletcrushers\Scripts\activate.bat
+    REM J:\prj\web\!virtualenvs\tcsite\Scripts\activate.bat
     set DJANGO_SETTINGS_MODULE=tcsite.settings.base
     python manage.py runserver
 )

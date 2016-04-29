@@ -1,14 +1,16 @@
-from django.contrib import admin
+﻿from django.contrib import admin
 
-from adminsortable.admin import SortableAdmin
+from adminsortable.admin import SortableAdmin, SortableStackedInline
 
-from .models import Game
-from .models import Screenshot
+from .models import Game, Screenshot, AllTags
+
+from contacts.admin import LimitedAdmin
 
 
 
-class ScreeenshotInline(admin.StackedInline):
+class ScreenshotInline(SortableStackedInline):
     model = Screenshot
+    extra = 0
 
 class SortableAdminClass(SortableAdmin):
     fieldsets = [
@@ -27,14 +29,9 @@ class SortableAdminClass(SortableAdmin):
         (None, {'fields' : ['client']}),
         (None, {'fields' : ['tags']}),
     ]
-    inlines = [ScreeenshotInline]
 
+    inlines = [ScreenshotInline]
 
-
-
-
-
-class ScreenshotAdmin(admin.ModelAdmin):
-    fields=['screenshot_image']
+admin.site.register(AllTags, LimitedAdmin)
 
 admin.site.register(Game, SortableAdminClass)

@@ -1,4 +1,4 @@
-"""tcsite URL Configuration
+﻿"""tcsite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -20,6 +20,7 @@ from django.views.static import serve
 
 urlpatterns = [
     url(r'^', include('homepage.urls')),
+    url(r'^about/', include('about.urls')),
     url(r'^games/', include('games.urls')),
     url(r'^contacts/', include('contacts.urls')),
     url(r'^admin/', admin.site.urls),

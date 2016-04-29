@@ -1,4 +1,4 @@
-{% extends "tcsite/index.html" %}
+﻿{% extends "tcsite/index.html" %}
 
 {%  block content %}
 
@@ -6,14 +6,16 @@
 			<div class="container-fluid">
 
 				<!-- FILTERS -->
+            <h1>{{ ctag}}</h1>
 				<div class="row">
 					<div class="col-sm-12">
 						<ul id="filters" class="filters font-alt">
-							<li><a href="#" class="current" data-filter="*">All</a></li>
-							<li><a href="#" data-filter=".fashion">Fashion</a></li>
-							<li><a href="#" data-filter=".travel">Travel</a></li>
-							<li><a href="#" data-filter=".music">Music</a></li>
-							<li><a href="#" data-filter=".video">Video</a></li>
+							<li><a href="#" {% if not ctag %}class="current"{% endif %} data-filter="*">All</a></li>
+                            {% for tag in tags %}
+                                <li><a href="#"
+                                       {% if ctag == tag %}class="current"{% endif %}
+                                       data-filter=".{{ tag }}">{{ tag }}</a></li>
+                            {% endfor %}
 						</ul>
 					</div>
 				</div>
@@ -27,18 +29,18 @@
 
 					<div id="works-grid" class="works-grid works-grid-gutter">
 
-						{% for el in images %}
+						{% for obj in previews %}
 
-						<article class="work-item travel video">
+						<article class="work-item {% for tag in obj.tags %}{{ tag }}&nbsp;{% endfor %}">
 							<div class="work-wrapper">
 								<div class="work-thumbnail">
-									<img src="{{ el.url }}" alt="">
+									<img src="{{ obj.url }}" alt="">
 								</div>
 								<div class="work-caption">
-									<h3 class="work-title font-alt">{{ el.name }}</h3>
-									<span class="work-category font-serif"><a href="{{ el.name }}">{{ el.slogan }}</a></span>
+									<h3 class="work-title font-alt">{{ obj.name }}</h3>
+									<span class="work-category font-serif"><a href="{{ obj.name }}">{{ obj.slogan }}</a></span>
 								</div>
-								<a href="{{ el.name }}" class="work-link"></a>
+								<a href="{{ obj.name }}" class="work-link"></a>
 							</div>
 						</article>
 

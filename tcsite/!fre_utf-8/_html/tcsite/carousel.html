@@ -1,0 +1,31 @@
+﻿<section id="hero" class="module-hero js-fullheight">
+    <div id="slides">
+
+        <ul class="slides-container">
+
+            {% for el in images %}
+
+            <li class="bg-light bg-film">
+
+                <img src="{{ el.image.url }}" alt="">
+
+                <div class="hero-caption">
+                    <div class="hero-text">
+                        <h6 class="m-b-30">{{ el.toptitle }}</h6>
+                        <h1 class="m-b-30">{{ el.middletitle }}</h1>
+                        <h6 class="m-b-60">{{ el.bottomtitle }}</h6>
+                        <a href="#portfolio" class="btn btn-dark anim-scroll">Learn More</a>
+                    </div>
+                </div>
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+        <nav class="slides-navigation">
+            <a href="#" class="next"><i class="fa fa-angle-right"></i></a>
+            <a href="#" class="prev"><i class="fa fa-angle-left"></i></a>
+        </nav>
+    </div>
+</section>
