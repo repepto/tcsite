@@ -51,3 +51,9 @@ class Screenshot(SortableMixin):
 
     def __str__(self):
         return 'Screenshot: 1000x600'
+
+class TopImage(models.Model):
+    image=models.ImageField("Top image")
+
+    def __str__(self):
+        return 'Top image: 1000x600'

@@ -74,6 +74,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 'games.context_processors.tags',
+                'games.context_processors.game_top_img',
             ],
         },
     },
@@ -145,7 +146,7 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 
 ADMIN_REORDER = [
     #'auth',
