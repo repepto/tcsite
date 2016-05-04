@@ -1,8 +1,14 @@
 from django.shortcuts import render
-from django.db import models
 
-#from .models import About
+from .models import About
 
 
 def about(request):
-    return render(request,'about/about.html')
+
+    a = About.objects.all()[0]
+    members = a.member_set.all()
+    reviews = a.review_set.all()
+    print('=============================================')
+    print(reviews)
+
+    return render(request,'about/about.html',{'about':a, 'members':members, 'reviews':reviews})

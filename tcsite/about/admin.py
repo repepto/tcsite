@@ -4,14 +4,18 @@ from contacts.admin import LimitedAdmin
 
 from adminsortable.admin import NonSortableParentAdmin, SortableStackedInline
 
-from .models import About, TeamMember
+from .models import About, Member, Review
 
-class TeamMemberInline(SortableStackedInline):
-    model = TeamMember
+class MemberInline(SortableStackedInline):
+    model = Member
+    extra = 0
+
+class ClientReviewInline(SortableStackedInline):
+    model = Review
     extra = 0
 
 class AboutAdmin(NonSortableParentAdmin, LimitedAdmin):
-    inlines = [TeamMemberInline]
+    inlines = [MemberInline, ClientReviewInline]
 
 
 admin.site.register(About, AboutAdmin)

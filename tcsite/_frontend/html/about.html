@@ -1,21 +1,15 @@
 {% extends "tcsite/index.html" %}
 
+{%  block a3 %}
+    <li class="currentPage">салон</li>
+{%  endblock %}
+
 {%  block content %}
 
 
-        <section id="hero" class="module-hero bg-dark-30 js-fullheight" data-background="assets/images/module-4.jpg">
-
-			<!-- HERO TEXT -->
-			<div class="hero-caption">
-				<div class="hero-text">
-					<h1 class="hero-title">Creative Agency</h1>
-					<p class="hero-subtitle font-serif m-t-40">A collection of textile samples lay spread out on the table – Samsa was a travelling<br> salesman – and above it there hung a picture that he had recently cut.</p>
-				</div>
-			</div>
-			<!-- /HERO TEXT -->
-
-		</section>
-		<!-- /HERO -->
+        {% with bg_url=about.top_image.url title=about.title slogan=about.slogan %}
+            {% include "tcsite/top_img_full.html" %}
+	    {% endwith %}
 
 		<!-- SERVICES -->
 		<section class="module">
@@ -24,7 +18,7 @@
 				<!-- MODULE TITLE -->
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
-						<h2 class="module-title font-alt">Our Services</h2>
+						<h2 class="module-title font-alt">Наши услуги</h2>
 						<p class="module-subtitle">A collection of textile samples lay spread out on the table – Samsa was a travelling salesman – and above it there hung a picture that he had recently cut.</p>
 					</div>
 				</div>
@@ -95,7 +89,7 @@
 		<!-- /SERVICES -->
 
 		<!-- COUNTERS -->
-		<section class="module bg-dark-30" data-background="assets/images/module-5.jpg">
+		<section class="module bg-dark-30" data-background="{{ about.middle_bg.url }}">
 			<div class="container-fluid container-custom">
 
 				<div class="row">
@@ -185,7 +179,7 @@
 				<!-- MODULE TITLE -->
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
-						<h2 class="module-title font-alt">Meet with <br> our creative team</h2>
+						<h2 class="module-title font-alt">наш коллектив</h2>
 						<p class="module-subtitle">A collection of textile samples lay spread out on the table – Samsa was a travelling salesman – and above it there hung a picture that he had recently cut.</p>
 					</div>
 				</div>
@@ -193,100 +187,24 @@
 
 				<div class="row">
 
+                    {% for member in members %}
 
-
-
-
-					<div class="col-sm-6">
+                    <div class="col-sm-3">
 						<div class="team-item m-b-sm-40">
-							<img src="assets/images/team-3.jpg" alt="Martin Friman">
+							<img src="{{ member.image.url }}" alt="Martin Friman">
 							<div class="team-inner">
-								<h4 class="team-name font-alt">Jim Stone</h4>
-								<span class="team-role font-serif">Art Director</span>
+								<h4 class="team-name font-alt">{{ member.name }}</h4>
+								<span class="team-role font-serif">{{ member.position }}</span>
 							</div>
 						</div>
 					</div>
 
+                    {% endfor %}
+
 
 				</div><!-- .row -->
 
-				<div class="row m-t-70">
 
-					<div class="col-sm-6">
-
-						<!-- PROGRESS BAR -->
-						<h5 class="progress-title">Development</h5>
-						<div class="progress">
-							<div class="progress-bar" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-								<span class="font-serif">
-									<span class="progress-value"></span>%
-								</span>
-							</div>
-						</div>
-						<!-- /PROGRESS BAR -->
-
-						<!-- PROGRESS BAR -->
-						<h5 class="progress-title">Branding</h5>
-						<div class="progress">
-							<div class="progress-bar" aria-valuenow="80" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-								<span class="font-serif">
-									<span class="progress-value"></span>%
-								</span>
-							</div>
-						</div>
-						<!-- /PROGRESS BAR -->
-
-						<!-- PROGRESS BAR -->
-						<h5 class="progress-title">Marketing</h5>
-						<div class="progress">
-							<div class="progress-bar" aria-valuenow="50" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-								<span class="font-serif">
-									<span class="progress-value"></span>%
-								</span>
-							</div>
-						</div>
-						<!-- /PROGRESS BAR -->
-
-					</div><!-- .col-* -->
-
-					<div class="col-sm-6">
-
-						<!-- PROGRESS BAR -->
-						<h5 class="progress-title">Development</h5>
-						<div class="progress">
-							<div class="progress-bar" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-								<span class="font-serif">
-									<span class="progress-value"></span>%
-								</span>
-							</div>
-						</div>
-						<!-- /PROGRESS BAR -->
-
-						<!-- PROGRESS BAR -->
-						<h5 class="progress-title">Branding</h5>
-						<div class="progress">
-							<div class="progress-bar" aria-valuenow="80" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-								<span class="font-serif">
-									<span class="progress-value"></span>%
-								</span>
-							</div>
-						</div>
-						<!-- /PROGRESS BAR -->
-
-						<!-- PROGRESS BAR -->
-						<h5 class="progress-title">Marketing</h5>
-						<div class="progress">
-							<div class="progress-bar" aria-valuenow="50" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-								<span class="font-serif">
-									<span class="progress-value"></span>%
-								</span>
-							</div>
-						</div>
-						<!-- /PROGRESS BAR -->
-
-					</div><!-- .col-* -->
-
-				</div><!-- .row -->
 
 			</div>
 		</section>
@@ -301,7 +219,7 @@
 				<!-- MODULE TITLE -->
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
-						<h2 class="module-title font-alt">Client reviews</h2>
+						<h2 class="module-title font-alt">клиенты о нас</h2>
 					</div>
 				</div>
 				<!-- /MODULE TITLE -->
@@ -313,25 +231,15 @@
 						<!-- TESTIMONIALS CAROUSEL -->
 						<div class="owl-carousel slider-reviews">
 
-							<!-- TESTIMONIAL -->
+							{% for r in reviews %}
 							<blockquote class="testimonial font-serif">
-								When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove
+								{{ r.speech }}
 								<cite class="font-alt">
-									<img src="https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg" alt="">
-									John Doe
+									<img src="{{ r.avatar.url }}" alt="">
+									{{ r.name }}
 								</cite>
 							</blockquote>
-							<!-- /TESTIMONIAL -->
-
-							<!-- TESTIMONIAL -->
-							<blockquote class="testimonial font-serif">
-								When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove
-								<cite class="font-alt">
-									<img src="https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg" alt="">
-									Mark Stone
-								</cite>
-							</blockquote>
-							<!-- /TESTIMONIAL -->
+							{% endfor %}
 
 						</div>
 						<!-- /TESTIMONIALS CAROUSEL -->

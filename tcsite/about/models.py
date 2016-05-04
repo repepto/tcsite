@@ -2,9 +2,10 @@ from django.db import models
 from adminsortable.models import SortableMixin
 
 class About(models.Model):
-    preview_image = models.ImageField()
+    top_image = models.ImageField('Top image 1600x1067', upload_to='about/top_image')
     title = models.CharField(max_length=49)
     slogan = models.TextField(blank=True)
+    middle_bg = models.ImageField('middle_bg 1600x1066', upload_to='about/middle_bg')
 
     class Meta:
         verbose_name = 'About'
@@ -16,15 +17,28 @@ class About(models.Model):
     def __str__(self):
         return "About"
 
-class TeamMember(SortableMixin):
+class Member(SortableMixin):
     about = models.ForeignKey(About, on_delete=models.CASCADE)
-    image = models.ImageField()
+    image = models.ImageField('Member photo 600x820', upload_to='about/team_member_photos')
     name = models.CharField(max_length=49)
     position = models.CharField(max_length=49)
 
     class Meta:
-        verbose_name = 'TeamMember'
-        verbose_name_plural = 'TeamMembers'
+        verbose_name = 'Team member'
+        verbose_name_plural = 'Team members'
+        ordering = ['member_order']
+
+    member_order =  models.PositiveIntegerField(default=0, editable=False, db_index=True)
+
+class Review(SortableMixin):
+    about = models.ForeignKey(About, on_delete=models.CASCADE)
+    avatar = models.ImageField('Avatar 100x100', upload_to='about/client_avatars')
+    name = models.CharField(max_length=49)
+    speech = models.CharField(max_length=210)
+
+    class Meta:
+        verbose_name = 'Client review'
+        verbose_name_plural = 'Client reviews'
         ordering = ['member_order']
 
     member_order =  models.PositiveIntegerField(default=0, editable=False, db_index=True)

@@ -95,6 +95,8 @@
 			return false;
 		});
 
+		$('#toclick').click()
+
 		$(window).on('resize', function() {
 			worksgrid.imagesLoaded(function() {
 				worksgrid.isotope({
@@ -152,8 +154,8 @@
 			goToFirstSpeed:  2000,
 			autoPlay:        3000,
 			navigationText: [
-				'<img src="assets/images/arrow-l.png" alt="arrow">',
-				'<img src="assets/images/arrow-r.png" alt="arrow">'
+				'<img src="'+ static_url + 'images/arrow-l.png" alt="arrow">',
+				'<img src="'+ static_url + 'images/arrow-r.png" alt="arrow">'
 			],
 		});
 

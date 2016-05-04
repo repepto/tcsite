@@ -1,10 +1,10 @@
 ﻿{% extends "tcsite/index.html" %}
 
-{%  block a4 %}<li class="currentPage">Contact</li>{%  endblock %}
+{%  block a4 %}<li class="currentPage">контакты</li>{%  endblock %}
 
 {%  block content %}
 <section class="module-map">
-    <div id="map" data-address="Дубровицкая 8. Киев. Украина."></div>
+    <div id="map" data-address="{{ contact.map_adress }}"></div>
 </section>
 
 <!-- CONTACT -->
@@ -14,8 +14,10 @@
 				<!-- MODULE TITLE -->
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
-						<h2 class="module-title font-alt">Let's talk</h2>
-						<p class="module-subtitle">A collection of textile samples lay spread out on the table вЂ“ Samsa was a travelling salesman вЂ“ and above it there hung a picture that he had recently cut.</p>
+						<h2 class="module-title font-alt">давайте общаться</h2>
+						<p class="module-subtitle">
+                            Спрашивайте. Предлагайте. Критикуйте. Мы всегда открыты для общения и обязательно ответим вам!
+                        </p>
 					</div>
 				</div>
 				<!-- /MODULE TITLE -->
@@ -60,7 +62,7 @@
 								<h4 class="iconbox-title font-alt">Say Hello</h4>
 							</div>
 							<div class="iconbox-content">
-								<p>Email: somecompany@example.com<br>Phone: +1 234 567 89 10</p>
+								<p>Email: {{ contact.email }}<br>Phone: {{ contact.phone }}</p>
 							</div>
 						</div>
 
@@ -72,7 +74,7 @@
 								<h4 class="iconbox-title font-alt">Where to meet</h4>
 							</div>
 							<div class="iconbox-content">
-								<p>Stone Company<br> 23 Greate Street<br> Los Angeles, 12345 LS</p>
+								<p>{{ contact.adress | safe }}</p>
 							</div>
 						</div>
 

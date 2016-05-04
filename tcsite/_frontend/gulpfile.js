@@ -55,6 +55,14 @@ gulp.task('minify-html', function() {
     gulp.src('html/tcsite/top_img.html')
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
     .pipe(gulp.dest('../templates/tcsite'))
+
+    gulp.src('html/tcsite/top_img_full.html')
+    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+    .pipe(gulp.dest('../templates/tcsite'))
+
+    gulp.src('html/tcsite/top_video.html')
+    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+    .pipe(gulp.dest('../templates/tcsite'))
 });
 
 gulp.task('default', function() {

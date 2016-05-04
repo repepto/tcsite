@@ -1,9 +1,13 @@
 ﻿{% extends "tcsite/index.html" %}
 
-{%  block a0 %}<li class="currentPage">home</li>{%  endblock %}
+{%  block a0 %}<li class="currentPage">главная</li>{%  endblock %}
 
 {%  block content %}
 
-    {% include "tcsite/carousel.html" %}
+    {% if video_obj %}
+        {% include "tcsite/top_video.html" %}
+    {% else %}
+        {% include "tcsite/carousel.html" %}
+    {% endif %}
 
 {% endblock %}

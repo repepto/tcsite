@@ -11,9 +11,10 @@ class AllTags(models.Model):
 
 
 class Game(SortableMixin):
-    preview_image = models.ImageField()
-    promo_image = models.ImageField()
+
+    top_image = models.ImageField(upload_to='games/top_images')
     name=models.CharField(max_length=49)
+    preview_image = models.ImageField(upload_to='games/preview_images')
     slogan=models.CharField(max_length=49, blank=True)
     top_title=models.CharField(max_length=49, blank=True)
     top_description_italic=models.TextField(blank=True)
@@ -40,7 +41,7 @@ class Game(SortableMixin):
 
 class Screenshot(SortableMixin):
     game = SortableForeignKey(Game) #, on_delete=models.CASCADE
-    screenshot_image=models.ImageField()
+    screenshot_image=models.ImageField(upload_to='games/instance')
 
     class Meta:
         verbose_name = 'ScreenShot'
@@ -52,8 +53,10 @@ class Screenshot(SortableMixin):
     def __str__(self):
         return 'Screenshot: 1000x600'
 
-class TopImage(models.Model):
-    image=models.ImageField("Top image")
+class Media(models.Model):
+    image=models.ImageField("Top image 1000x600", upload_to='games/main_top_image')
+    title=models.CharField(max_length=49, blank=True)
+    slogan=models.CharField(max_length=140, blank=True)
 
     def __str__(self):
-        return 'Top image: 1000x600'
+        return 'Media'

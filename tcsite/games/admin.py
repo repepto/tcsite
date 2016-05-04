@@ -2,7 +2,7 @@
 
 from adminsortable.admin import SortableAdmin, SortableStackedInline
 
-from .models import Game, Screenshot, AllTags, TopImage
+from .models import Game, Screenshot, AllTags, Media
 
 from contacts.admin import LimitedAdmin
 
@@ -15,7 +15,7 @@ class ScreenshotInline(SortableStackedInline):
 class SortableAdminClass(SortableAdmin):
     fieldsets = [
         ('Preview image: 800x600', {'fields' : ['preview_image']}),
-        ('Promo image: 1000x600', {'fields' : ['promo_image']}),
+        ('Top image: 1000x600', {'fields' : ['top_image']}),
         (None, {'fields' : ['name']}),
         (None, {'fields' : ['slogan']}),
         (None, {'fields' : ['top_title']}),
@@ -34,6 +34,6 @@ class SortableAdminClass(SortableAdmin):
 
 admin.site.register(AllTags, LimitedAdmin)
 
-admin.site.register(TopImage, LimitedAdmin)
+admin.site.register(Media, LimitedAdmin)
 
 admin.site.register(Game, SortableAdminClass)

@@ -1,7 +1,7 @@
 ﻿{% extends "tcsite/index.html" %}
 {%  block content %}
 
-    {% with top_img=game.promo_image.url title=game.name slogan=game.slogan %}
+    {% with top_img=game.top_image.url title=game.name slogan=game.slogan %}
         {% include "tcsite/top_img.html" %}
 	{% endwith %}
 
@@ -45,7 +45,7 @@
 
 						<!-- TAGS -->
 						<div class="tags font-serif">
-                            {% for t in tags %}
+                            {% for t in g_tags %}
 							<a href="#">{{ t }}</a>
                             {% endfor %}
 						</div>
@@ -67,8 +67,10 @@
 				<!-- MODULE TITLE -->
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
-						<h2 class="module-title font-alt">Related Works</h2>
-						<p class="module-subtitle">A collection of textile samples lay spread out on the table вЂ“ Samsa was a travelling salesman вЂ“ and above it there hung a picture that he had recently cut.</p>
+						<h2 class="module-title font-alt">Случайные работы</h2>
+						<p class="module-subtitle">
+                            Perhaps you will be interested to get acquainted with our other games. <br>You can also go to <nobr></nobr><a href="../../games" class="underlined"><nobr>all&nbsp;the&nbsp;games&nbsp;list</nobr></a>
+                        </p>
 					</div>
 				</div>
 				<!-- /MODULE TITLE -->
@@ -80,52 +82,29 @@
 				<!-- WORKS GRID -->
 				<div class="works-grid-wrapper">
 
-					<div id="works-grid" class="works-grid works-grid-gutter work-grid-3">
 
-						<!-- PORTFOLIO ITEM -->
+					<div id="works-grid" class="works-grid works-grid-gutter work-grid-4">
+
+						{% for work in random_works %}
 						<article class="work-item travel video">
-							<div class="work-wrapper">
+                            <div class="work-wrapper">
 								<div class="work-thumbnail">
-									<img src="assets/images/portfolio-1.jpg" alt="">
+									<img src="{{ work.preview_image.url }}" alt="">
 								</div>
 								<div class="work-caption">
-									<h3 class="work-title font-alt">Montures</h3>
-									<span class="work-category font-serif"><a href="#">Travel, Video</a></span>
-								</div>
-								<a href="portfolio-single-1.html" class="work-link"></a>
-							</div>
-						</article>
-						<!-- /PORTFOLIO ITEM -->
+									<h3 class="work-title font-alt">{{ work.name }}</h3>
 
-						<!-- PORTFOLIO ITEM -->
-						<article class="work-item music">
-							<div class="work-wrapper">
-								<div class="work-thumbnail">
-									<img src="assets/images/portfolio-2.jpg" alt="">
-								</div>
-								<div class="work-caption">
-									<h3 class="work-title font-alt">Pink Lips</h3>
-									<span class="work-category font-serif"><a href="#">Music</a></span>
-								</div>
-								<a href="portfolio-single-1.html" class="work-link"></a>
-							</div>
-						</article>
-						<!-- /PORTFOLIO ITEM -->
+									{% for tag in work.tags %}<span class="work-category font-serif">
+                                        {{ tag }}
+                                    </span>
 
-						<!-- PORTFOLIO ITEM -->
-						<article class="work-item travel">
-							<div class="work-wrapper">
-								<div class="work-thumbnail">
-									<img src="assets/images/portfolio-6.jpg" alt="">
+                                    {% endfor %}
+
 								</div>
-								<div class="work-caption">
-									<h3 class="work-title font-alt">The Handkerchief</h3>
-									<span class="work-category font-serif"><a href="#">Travel</a></span>
-								</div>
-								<a href="portfolio-single-1.html" class="work-link"></a>
+								<a href="../{{ work.name }}" class="work-link"></a>
 							</div>
 						</article>
-						<!-- /PORTFOLIO ITEM -->
+						{% endfor %}
 
 					</div>
 				</div>
