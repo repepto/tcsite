@@ -1,3 +1,4 @@
+a.*
 *.pyc
 local.py
 /misc

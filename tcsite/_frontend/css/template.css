@@ -1809,6 +1809,10 @@ blockquote cite{
 	cursor: default;
 }
 
+.defaultcursor{
+	cursor: default;
+}
+
 .underlined {
 	text-decoration: underline;
 	color: #337ab7;
