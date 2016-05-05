@@ -27,7 +27,7 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="text-center m-b-60">
-							<img src="assets/images/notebooks.jpg" alt="">
+							<img src="{{ about.promo_image.url }}" alt="">
 						</div>
 					</div>
 				</div>
@@ -262,94 +262,19 @@
 					<div class="slider-clients owl-carousel text-center">
 
 						<!-- Client logo start -->
+
+                        {% for brand in brands %}
+
 						<div class="owl-item">
 							<div class="col-sm-12">
 								<div class="client-item">
-									<img src="assets/images/logos/logo-1.png" alt="">
+									<img src="{{ brand.image.url }}" alt="">
 								</div>
 							</div>
 						</div>
 						<!--  Client logo end -->
 
-						<!-- Client logo start -->
-						<div class="owl-item">
-							<div class="col-sm-12">
-								<div class="client-item">
-									<img src="assets/images/logos/logo-2.png" alt="">
-								</div>
-							</div>
-						</div>
-						<!--  Client logo end -->
-
-						<!-- Client logo start -->
-						<div class="owl-item">
-							<div class="col-sm-12">
-								<div class="client-item">
-									<img src="assets/images/logos/logo-3.png" alt="">
-								</div>
-							</div>
-						</div>
-						<!--  Client logo end -->
-
-						<!-- Client logo start -->
-						<div class="owl-item">
-							<div class="col-sm-12">
-								<div class="client-item">
-									<img src="assets/images/logos/logo-4.png" alt="">
-								</div>
-							</div>
-						</div>
-						<!--  Client logo end -->
-
-						<!-- Client logo start -->
-						<div class="owl-item">
-							<div class="col-sm-12">
-								<div class="client-item">
-									<img src="assets/images/logos/logo-5.png" alt="">
-								</div>
-							</div>
-						</div>
-						<!--  Client logo end -->
-
-						<!-- Client logo start -->
-						<div class="owl-item">
-							<div class="col-sm-12">
-								<div class="client-item">
-									<img src="assets/images/logos/logo-6.png" alt="">
-								</div>
-							</div>
-						</div>
-						<!--  Client logo end -->
-
-						<!-- Client logo start -->
-						<div class="owl-item">
-							<div class="col-sm-12">
-								<div class="client-item">
-									<img src="assets/images/logos/logo-7.png" alt="">
-								</div>
-							</div>
-						</div>
-						<!--  Client logo end -->
-
-						<!-- Client logo start -->
-						<div class="owl-item">
-							<div class="col-sm-12">
-								<div class="client-item">
-									<img src="assets/images/logos/logo-8.png" alt="">
-								</div>
-							</div>
-						</div>
-						<!--  Client logo end -->
-
-						<!-- Client logo start -->
-						<div class="owl-item">
-							<div class="col-sm-12">
-								<div class="client-item">
-									<img src="assets/images/logos/logo-9.png" alt="">
-								</div>
-							</div>
-						</div>
-						<!--  Client logo end -->
+                        {% endfor %}
 
 					</div>
 					<!-- Owl-carousel end -->

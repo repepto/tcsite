@@ -5,6 +5,7 @@ class About(models.Model):
     top_image = models.ImageField('Top image 1600x1067', upload_to='about/top_image')
     title = models.CharField(max_length=49)
     slogan = models.TextField(blank=True)
+    promo_image = models.ImageField('Promo image 1528x576', upload_to='about/promo_image')
     middle_bg = models.ImageField('middle_bg 1600x1066', upload_to='about/middle_bg')
 
     class Meta:
@@ -16,6 +17,18 @@ class About(models.Model):
 
     def __str__(self):
         return "About"
+
+
+class Brand(SortableMixin):
+    abjut = models.ForeignKey(About, on_delete=models.CASCADE)
+    image = models.ImageField('Logo', upload_to='about/brands')
+
+    class Meta:
+        verbose_name = 'Brand'
+        verbose_name_plural = 'Brands'
+        ordering = ['brand_order']
+
+    brand_order =  models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
 class Member(SortableMixin):
     about = models.ForeignKey(About, on_delete=models.CASCADE)
