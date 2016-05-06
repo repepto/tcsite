@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'homepage',
     'about',
+    'blog',
     'games',
     'contacts',
     'admin_reorder',
@@ -74,6 +75,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 'games.context_processors.tags',
+                'blog.context_processors.tags',
             ],
         },
     },
@@ -150,8 +152,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 ADMIN_REORDER = [
     #'auth',
     'homepage',
-    'about',
     'games',
+    'blog',
+    'about',
     'contacts',
 ]
 

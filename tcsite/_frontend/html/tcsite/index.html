@@ -61,19 +61,17 @@
 						</ul>
 					</li>
 
-                    {%  block a2 %}
+
 					<li class="dropdown">
-						<a class="dropdown-toggle defaultcursor" data-toggle="dropdown">блог</a>
+						{%  block a2 %}<a class="dropdown-toggle defaultcursor" data-toggle="dropdown">блог</a>{% endblock %}
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="portfolio-single.html">Single Work 1</a></li>
-							<li><a href="portfolio-single-2.html">Single Work 2</a></li>
-							<li><a href="portfolio-single-3.html">Single Work 3</a></li>
-							<li><a href="portfolio-single-4.html">Single Work 4 & Youtube</a></li>
-							<li><a href="portfolio-single-5.html">Single Work 5 & Vimeo</a></li>
-							<li><a href="portfolio-single-6.html">Single Work 6 & Gallery</a></li>
+							<li><a href="/blog?cname=1">все статьи</a></li>
+							{% for tag in blog_tags %}
+							<li><a href="/blog?cname=1&tag={{ tag }}">{{ tag }}</a></li>
+                            {% endfor %}
 						</ul>
 					</li>
-                    {% endblock %}
+
 
                     {%  block a3 %}
                     <li><a href="/about">салон</a></li>

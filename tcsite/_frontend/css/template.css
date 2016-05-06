@@ -633,15 +633,15 @@ blockquote cite{
 [Pagination]
 */
 
-.pagination > li > a, .pagination > li > span{
+.pagination > li > form > button, .pagination > li > a, .pagination > li > span{
 	background:#f5f5f5;
 	border:0;
 	color:#111;
 	padding:9px 14px;
-	margin:0 5px 0 0;
+	margin:0 5px 4px 0;
 }
 
-.pagination > li > a, .pagination > li > span, .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+.pagination > li > form > input, .pagination > li > form > button, .pagination > li > a, .pagination > li > span, .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
 	-webkit-border-radius:2px;
 	-moz-border-radius:2px;
 	-o-border-radius:2px;
@@ -652,9 +652,9 @@ blockquote cite{
 	transition:all 0.125s cubic-bezier( 0.3, 0.1, 0.58, 1 );
 }
 
-.pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus, .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-	background-color:#111;
-	color:#fff;
+.pagination > li > form > button:hover, .pagination > li > button:focus, .pagination > li > a:hover, .pagination > li > a:focus, /*.pagination > li > span:hover, .pagination > li > span:focus,*/ .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+	background-color:#111 !important;
+	color:#fff !important;
 }
 /*!------------------------------------------------------------------
 [Tags]
@@ -1829,4 +1829,51 @@ blockquote cite{
 	margin:0 auto;
 	display: none;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.right{
+	float: right !important;
+	display: inline;
+}
+
+.left{
+	float: left !important;
+	display: inline !important;
+	height: 35px;
+}
+
+.pagbutton{
+	width: 36px;
+	height: 36px;
+	position: relative;
+	left: 5px;
+	padding: 0;
+	padding-left: 4px;
+	text-align: center;
+	color: #777777 !important;
+}
+
+.paginput{
+	float: left;
+	width: 50px;
+	height: 36px;
+	border-style: solid;
+	border-width: thin;
+	border-color: #f0f0f0;
+	padding: 7px;
+	outline-width: 0;
+}
+
+.emptypag{
+	background:#fff !important;
+	font-size: 8px; !important;
+}
+
+.lightcolor{
+	color: #cccccc !important;
+}
+
+.pad0{
+	padding: 0 !important;
+	margin: 0 !important;
 }

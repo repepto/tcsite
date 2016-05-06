@@ -40,6 +40,14 @@ gulp.task('minify-html', function() {
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
     .pipe(gulp.dest('../homepage/templates/homepage'))
 
+    gulp.src('html/post.html')
+    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+    .pipe(gulp.dest('../blog/templates/blog'))
+
+    gulp.src('html/posts.html')
+    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+    .pipe(gulp.dest('../blog/templates/blog'))
+
     gulp.src('html/tcsite/carousel.html')
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
     .pipe(gulp.dest('../templates/tcsite'))
