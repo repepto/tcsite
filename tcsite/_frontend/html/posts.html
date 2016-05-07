@@ -38,12 +38,12 @@
                     {% endif %}
 
                     <div class="post-header">
-                        <h2 class="post-title font-alt"><a href="blog/{{ post.title }}">{{ post.title }}</a></h2>
-                        <a class="hero-subtitle font-serif m-t-40 top_m_30" href="blog/{{ post.title }}">{{ post.slogan }}</a>
+                        <h2 class="post-title font-alt"><a href="{{ post.title }}">{{ post.title }}</a></h2>
+                        <a class="hero-subtitle font-serif m-t-40 top_m_30" href="{{ post.title }}">{{ post.slogan }}</a>
                     </div>
                     <div class="post-content">
                         {% if post.block1 %}<p>{{ post.block1 }}</p>{% else %}<p>{{ post.block2 }}</p>{% endif %}
-                        <a class="post-more" href="blog/{{ post.title }}">Подробнее →</a>
+                        <a class="post-more" href="{{ post.title }}">Подробнее →</a>
                     </div>
                     <hr class="divider">
                 </article>
@@ -87,7 +87,7 @@
                             {% endif %}
 
                             <li>
-                                <form action="" class="left" method="get" role="form" novalidate style="width:92px; margin-left: 14px;">
+                                <form action="" class="left" method="get" role="form" novalidate>
                                     <input value="{{ iv }}" min="1" max="{{ posts.paginator.num_pages }}"type="number" id="name" class="paginput" name="cname" required="">
                                     <button type="submit" class="pagbutton">&#9658;</button>
 

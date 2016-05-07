@@ -45,8 +45,8 @@
 
 						<!-- TAGS -->
 						<div class="tags font-serif">
-                            {% for t in g_tags %}
-							<a href="#">{{ t }}</a>
+                            {% for tag in g_tags %}
+							<a href="../?tag={{ tag }}">{{ tag }}</a>
                             {% endfor %}
 						</div>
 						<!-- /TAGS -->

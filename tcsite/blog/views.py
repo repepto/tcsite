@@ -4,7 +4,19 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post, TopMedia
 
 def posts(request):
-    posts = Post.objects.all()
+
+    tag = request.GET.get('tag')
+    postsAll = Post.objects.all()
+
+    posts=[]
+
+    if tag:
+        for post in postsAll:
+            if tag in post.tags:
+                posts.append(post)
+    else:
+        posts = postsAll
+
     paginator = Paginator(posts, 3)
 
     page = request.GET.get('cname')
