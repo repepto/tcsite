@@ -6,7 +6,7 @@ from .models import Game, Media
 
 
 def games(request):
-    media = Media.objects.all()[0]
+    media = Media.objects.first()
     games = Game.objects.all()
     previews = []
     for game in games:

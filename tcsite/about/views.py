@@ -5,7 +5,7 @@ from .models import About
 
 def about(request):
 
-    a = About.objects.all()[0]
+    a = About.objects.first()
     members = a.member_set.all()
     reviews = a.review_set.all()
     brands = a.brand_set.all()

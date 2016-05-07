@@ -9,7 +9,7 @@ from .models import Contacts
 
 def contacts(request):
 
-    contact = Contacts.objects.all()[0]
+    contact = Contacts.objects.first()
     return render(request, 'contacts/contacts.html', {'contact':contact})
 
 def send(request):

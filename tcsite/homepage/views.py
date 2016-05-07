@@ -14,7 +14,7 @@ def homepage(request):
         showvideo = 'on'
 
     if showvideo == 'on':
-        video_obj=TopVideo.objects.all()[0]
+        video_obj=TopVideo.objects.first()
         context = {'video_obj':video_obj}
         response = HttpResponse()
         response.set_cookie('showvideo', 'off')

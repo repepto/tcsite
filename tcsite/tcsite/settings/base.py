@@ -35,15 +35,21 @@ INSTALLED_APPS = [
     'blog',
     'games',
     'contacts',
+    'disqus',
     'admin_reorder',
     'adminsortable',
     'django.contrib.admin',
+    'django.contrib.sites',
     'django.contrib.auth',
+    'django_cleanup',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+DISQUS_API_KEY = 'MG8zUtnOVEOOLkBrAdzMRd1m7EE8Q6ETP6lah7OcZCfw6DMacEBPGfZbrQOkRjt5'
+DISQUS_WEBSITE_SHORTNAME = 'salonexpert'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -151,12 +157,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 
 ADMIN_REORDER = [
     #'auth',
+    'admin',
+    'sites',
     'homepage',
     'games',
     'blog',
     'about',
     'contacts',
 ]
+
+
+SITE_ID = 1
 
 #EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 #EMAIL_FILE_PATH = '/tmp/app-messages' # change this to a proper location

@@ -81,7 +81,11 @@ def posts(request):
 
 def post(request, title):
 
-    p = Post.objects.get(title = title)
+    try:
+        p = Post.objects.get(title = title)
+    except:
+        p = Post.objects.filter(title = title).first()
+
     tags = p.tags.split(',')
 
     next_post = Post.objects.filter(id__gt=p.id).order_by('id').first()
