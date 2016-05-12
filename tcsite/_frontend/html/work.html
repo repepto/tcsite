@@ -1,7 +1,7 @@
 ﻿{% extends "tcsite/index.html" %}
 {%  block content %}
 
-    {% with top_img=game.top_image.url title=game.name slogan=game.slogan %}
+    {% with top_img=work.top_image.url title=work.name slogan=work.slogan %}
         {% include "tcsite/top_img.html" %}
 	{% endwith %}
 
@@ -16,17 +16,17 @@
 						<!-- PORTFOLIO CONTENT -->
 						<article class="portfolio-post post">
 
-							<h4>{{ game.top_title }}</h4>
-							<blockquote><p>{{ game.top_description_italic }}</p></blockquote>
+							<h4>{{ work.top_title }}</h4>
+							<blockquote><p>{{ work.top_description_italic }}</p></blockquote>
 
-							<p>{{ game.top_description }}</p>
+							<p>{{ work.top_description }}</p>
 
-							{% if game.video_id %}
-                                <iframe width="420" height="284" src="http://www.youtube.com/embed/{{ game.video_id }}" frameborder="0" allowfullscreen></iframe>
+							{% if work.video_id %}
+                                <iframe width="420" height="284" src="http://www.youtube.com/embed/{{ work.video_id }}" frameborder="0" allowfullscreen></iframe>
                              {% endif %}
 
-							<h4>{{ game.midlle_title }}</h4>
-							<p>{{ game.middle_description }}</p>
+							<h4>{{ work.midlle_title }}</h4>
+							<p>{{ work.middle_description }}</p>
 
                             <div class="owl-carousel slider">
 
@@ -37,17 +37,17 @@
                                 {% endfor %}
 							</div>
 
-							<h4>{{ game.bottom_title }}</h4>
-							<p>{{ game.bottom_description }}</p>
+							<h4>{{ work.bottom_title }}</h4>
+							<p>{{ work.bottom_description }}</p>
 
-							<h6>{{ game.client }}</h6>
+							<h6><b>Клиент:</b>{{ work.client }}</h6>
 
 						</article>
 						<!-- /PORTFOLIO CONTENT -->
 
 						<!-- TAGS -->
 						<div class="tags font-serif">
-                            {% for tag in g_tags %}
+                            {% for tag in w_tags %}
 							<a href="../?tag={{ tag }}">{{ tag }}</a>
                             {% endfor %}
 						</div>
@@ -71,7 +71,7 @@
 					<div class="col-sm-6 col-sm-offset-3">
 						<h2 class="module-title font-alt">Случайные работы</h2>
 						<p class="module-subtitle">
-                            Perhaps you will be interested to get acquainted with our other games. <br>You can also go to <nobr></nobr><a href="../../games" class="underlined"><nobr>all&nbsp;the&nbsp;games&nbsp;list</nobr></a>
+                             Посмотрите некоторые другие наши работы. Или перейдите к <a href="../../works" class="underlined"><nobr>полному&nbsp;списку&nbsp;работ</nobr></a>
                         </p>
 					</div>
 				</div>

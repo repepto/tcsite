@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^', include('homepage.urls')),
     url(r'^about/', include('about.urls')),
     url(r'^blog/', include('blog.urls')),
-    url(r'^games/', include('games.urls')),
+    url(r'^works/', include('works.urls')),
     url(r'^contacts/', include('contacts.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),

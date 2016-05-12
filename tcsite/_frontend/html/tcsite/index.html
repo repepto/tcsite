@@ -37,9 +37,8 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="../home.html">
-
-					<img class="light-logo" src="{% static 'images/logo.png' %}" width="132" alt="">
+				<a class="navbar-brand" href="../">
+                    <img class="light-logo" src="{% static 'images/logo.png' %}" width="132" alt="">
 				</a>
 			</div>
 
@@ -54,9 +53,9 @@
                      <li class="dropdown">
 						{%  block a1 %}<a class="dropdown-toggle defaultcursor" data-toggle="dropdown">работы</a>{%  endblock %}
 						<ul class="dropdown-menu" role="menu">
-                            <li><a href="/games">все работы</a></li>
+                            <li><a href="/works">все работы</a></li>
                             {% for tag in tags %}
-							<li><a href="/games?tag={{ tag }}">{{ tag }}</a></li>
+							<li><a href="/works?tag={{ tag }}">{{ tag }}</a></li>
                             {% endfor %}
 						</ul>
 					</li>

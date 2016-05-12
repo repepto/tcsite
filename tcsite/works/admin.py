@@ -2,7 +2,7 @@
 
 from adminsortable.admin import SortableAdmin, SortableStackedInline
 
-from .models import Game, Screenshot, AllTags, Media
+from .models import Work, Screenshot, AllTags, Media
 
 from contacts.admin import LimitedAdmin
 
@@ -36,4 +36,4 @@ admin.site.register(AllTags, LimitedAdmin)
 
 admin.site.register(Media, LimitedAdmin)
 
-admin.site.register(Game, SortableAdminClass)
+admin.site.register(Work, SortableAdminClass)

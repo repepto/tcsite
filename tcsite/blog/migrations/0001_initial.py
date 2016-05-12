@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             name='Carousel',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='games/instance')),
+                ('image', models.ImageField(upload_to='works/instance')),
                 ('i_order', models.PositiveIntegerField(db_index=True, default=0, editable=False)),
             ],
             options={

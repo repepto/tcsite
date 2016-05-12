@@ -28,13 +28,13 @@ gulp.task('minify-html', function() {
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
     .pipe(gulp.dest('../contacts/templates/contacts'))
 
-    gulp.src('html/game.html')
+    gulp.src('html/work.html')
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
-    .pipe(gulp.dest('../games/templates/games'))
+    .pipe(gulp.dest('../works/templates/works'))
 
-    gulp.src('html/games.html')
+    gulp.src('html/works.html')
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true, ignoreCustomFragments: [/==/]}))
-    .pipe(gulp.dest('../games/templates/games'))
+    .pipe(gulp.dest('../works/templates/works'))
 
     gulp.src('html/home.html')
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
