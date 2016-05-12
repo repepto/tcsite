@@ -27,23 +27,25 @@ SECRET_KEY = os.environ["SE_SECRET_KEY"]
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.sites',
+
     'homepage',
     'about',
     'blog',
     'works',
     'contacts',
-    'disqus',
-    'ckeditor',
-    'admin_reorder',
-    'adminsortable',
-    'django.contrib.admin',
-    'django.contrib.sites',
-    'django.contrib.auth',
-    'django_cleanup',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+
+    #'disqus',
+    #'ckeditor',
+    #'admin_reorder',
+    #'adminsortable',
+    #'django_cleanup',
 ]
 
 CKEDITOR_CONFIGS = {
