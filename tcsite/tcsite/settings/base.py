@@ -110,16 +110,7 @@ WSGI_APPLICATION = 'tcsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'repepto',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+
 
 
 # Password validation
@@ -175,7 +166,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 ADMIN_REORDER = [
     #'auth',
     #'admin',
-    #'sites',
+    'sites',
     'homepage',
     'works',
     'blog',

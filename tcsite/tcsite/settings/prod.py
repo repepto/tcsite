@@ -2,14 +2,14 @@
 
 from .base import *
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in productieon!
 DEBUG = False
 
 ALLOWED_HOSTS = ['31.131.24.99']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sedb',
         'USER': 'se',
         'PASSWORD': os.environ["SE_DB_PASSWORD"],
