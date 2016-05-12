@@ -41,11 +41,11 @@ INSTALLED_APPS = [
     'works',
     'contacts',
 
-    #'disqus',
-    #'ckeditor',
-    #'admin_reorder',
-    #'adminsortable',
-    #'django_cleanup',
+    'disqus',
+    'ckeditor',
+    'admin_reorder',
+    'adminsortable',
+    'django_cleanup',
 ]
 
 CKEDITOR_CONFIGS = {
@@ -174,8 +174,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 
 ADMIN_REORDER = [
     #'auth',
-    'admin',
-    'sites',
+    #'admin',
+    #'sites',
     'homepage',
     'works',
     'blog',
