@@ -3,16 +3,16 @@ from adminsortable.models import SortableMixin
 
 
 class CarouselObj(models.Model):
-    image = models.ImageField('Image 1600x1066', upload_to='home/carousel_images')
-    toptitle=models.CharField('Top title',max_length=49,blank=True)
-    middletitle=models.CharField('Middle title', max_length=49, blank=True)
-    bottomtitle=models.CharField('Bottom title', max_length=49, blank=True)
-    buttontitle=models.CharField('Button lettering', max_length=49, blank=True)
-    href=models.CharField('Button href', max_length=49, blank=True)
+    image = models.ImageField('Картинка 1600x1066', upload_to='home/carousel_images')
+    toptitle=models.CharField('Верхняя надпись',max_length=49,blank=True)
+    middletitle=models.CharField('Спедняя надпись(большая)', max_length=49, blank=True)
+    bottomtitle=models.CharField('Нижняя надпись', max_length=49, blank=True)
+    buttontitle=models.CharField('Надпись на кнопке', max_length=49, blank=True)
+    href=models.CharField('Ссылка для кнопки', max_length=49, blank=True)
 
     class Meta:
-        verbose_name = 'Carousel object'
-        verbose_name_plural = 'Carousel objects'
+        verbose_name = 'Для карусели'
+        verbose_name_plural = 'Для карусели'
         ordering = ['the_order']
 
 
@@ -20,19 +20,19 @@ class CarouselObj(models.Model):
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     def __str__(self):
-        return 'Carousel object'
+        return 'Для карусели: ' + self.toptitle
 
 
 class TopVideo(models.Model):
-    title=models.CharField(max_length=49,blank=True)
-    slogan=models.CharField(max_length=49, blank=True)
-    video_id=models.CharField(max_length=49, blank=True)
-    button=models.CharField(max_length=49, blank=True)
-    href=models.CharField(max_length=49, blank=True)
+    title=models.CharField('Заголовок', max_length=49,blank=True)
+    slogan=models.CharField('Девиз', max_length=49, blank=True)
+    video_id=models.CharField('Видео (код ютуба)', max_length=49, blank=True)
+    button=models.CharField('Надпись на кнопке', max_length=49, blank=True)
+    href=models.CharField('Сылка кнопки', max_length=49, blank=True)
 
     class Meta:
-        verbose_name = 'top video object'
-        verbose_name_plural = 'top video object'
+        verbose_name = 'Видео-заставка'
+        verbose_name_plural = 'Видео-заставка'
 
     def __str__(self):
-        return 'Top video object'
+        return 'Видео-заставка: ' + self.title

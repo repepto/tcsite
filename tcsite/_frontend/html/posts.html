@@ -42,7 +42,7 @@
                         <a class="hero-subtitle font-serif m-t-40 top_m_30" href="{{ post.title }}">{{ post.slogan }}</a>
                     </div>
                     <div class="post-content">
-                        {% if post.block1 %}<p>{{ post.block1 }}</p>{% else %}<p>{{ post.block2 }}</p>{% endif %}
+                        <p>{{ post.txt }}</p>
                         <a class="post-more" href="{{ post.title }}">Подробнее →</a>
                     </div>
                     <hr class="divider">
@@ -97,9 +97,6 @@
 
 
                         </ul>
-
-
-
 
                     </div>
 

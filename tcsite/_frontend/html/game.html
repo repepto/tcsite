@@ -21,7 +21,9 @@
 
 							<p>{{ game.top_description }}</p>
 
-							{% if game.video_id %}<iframe src="//player.vimeo.com/video/{{ game.video_id }}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="500" height="281" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>{% endif %}
+							{% if game.video_id %}
+                                <iframe width="420" height="284" src="http://www.youtube.com/embed/{{ game.video_id }}" frameborder="0" allowfullscreen></iframe>
+                             {% endif %}
 
 							<h4>{{ game.midlle_title }}</h4>
 							<p>{{ game.middle_description }}</p>

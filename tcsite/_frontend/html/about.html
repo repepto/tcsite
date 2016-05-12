@@ -15,11 +15,12 @@
 		<section class="module">
 			<div class="container-fluid container-custom">
 
-				<!-- MODULE TITLE -->
+
+                <!-- MODULE TITLE -->
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
 						<h2 class="module-title font-alt">Наши услуги</h2>
-						<p class="module-subtitle">A collection of textile samples lay spread out on the table – Samsa was a travelling salesman – and above it there hung a picture that he had recently cut.</p>
+						<p class="module-subtitle">{{ about.service_slogan }}</p>
 					</div>
 				</div>
 				<!-- /MODULE TITLE -->
@@ -38,10 +39,10 @@
 					<div class="col-sm-4 col-md-4 col-lg-4">
 						<div class="iconbox">
 							<div class="iconbox-icon">
-								<span class="icon-strategy"></span>
+								<span class="icon-puzzle"></span>
 							</div>
 							<div class="iconbox-header">
-								<h4 class="iconbox-title font-alt">Premium Plugins</h4>
+								<h4 class="iconbox-title font-alt">парикмахерская</h4>
 							</div>
 							<div class="iconbox-content">
 								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
@@ -54,10 +55,10 @@
 					<div class="col-sm-4 col-md-4 col-lg-4">
 						<div class="iconbox">
 							<div class="iconbox-icon">
-								<span class="icon-layers"></span>
+								<span class="icon-puzzle"></span>
 							</div>
 							<div class="iconbox-header">
-								<h4 class="iconbox-title font-alt">Modular Layout</h4>
+								<h4 class="iconbox-title font-alt">Маникюр</h4>
 							</div>
 							<div class="iconbox-content">
 								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
@@ -70,10 +71,10 @@
 					<div class="col-sm-4 col-md-4 col-lg-4">
 						<div class="iconbox">
 							<div class="iconbox-icon">
-								<span class="icon-layers"></span>
+								<span class="icon-puzzle"></span>
 							</div>
 							<div class="iconbox-header">
-								<h4 class="iconbox-title font-alt">Modular Layout</h4>
+								<h4 class="iconbox-title font-alt">Макияж</h4>
 							</div>
 							<div class="iconbox-content">
 								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
@@ -171,7 +172,7 @@
 			</div>
 		</section>
 		<!-- /COUNTERS -->
-
+    {% if members %}
 		<!-- TEAM -->
 		<section class="module">
 			<div class="container-fluid container-custom">
@@ -180,7 +181,7 @@
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
 						<h2 class="module-title font-alt">наш коллектив</h2>
-						<p class="module-subtitle">A collection of textile samples lay spread out on the table – Samsa was a travelling salesman – and above it there hung a picture that he had recently cut.</p>
+						<p class="module-subtitle">{{ about.team_slogan }}</p>
 					</div>
 				</div>
 				<!-- /MODULE TITLE -->
@@ -209,14 +210,16 @@
 			</div>
 		</section>
 		<!-- /TEAM -->
+    {% endif %}
 
 		<hr class="divider">
-
+    {% if reviews %}
 		<!-- TESTIMONIALS -->
 		<section class="module">
 			<div class="container-fluid container-custom">
 
 				<!-- MODULE TITLE -->
+
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
 						<h2 class="module-title font-alt">клиенты о нас</h2>
@@ -251,8 +254,9 @@
 			</div>
 		</section>
 		<!-- /TESTIMONIALS -->
-
+    {% endif %}
 		<!-- CLIENTS -->
+    {% if brands %}
 		<section class="module-sm bg-gray">
 			<div class="container-fluid container-custom">
 
@@ -283,7 +287,7 @@
 
 			</div>
 		</section>
-
+    {% endif %}
 		{% include "tcsite/footer.html" %}
 
 {% endblock %}

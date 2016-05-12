@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'games',
     'contacts',
     'disqus',
+    'ckeditor',
     'admin_reorder',
     'adminsortable',
     'django.contrib.admin',
@@ -47,6 +48,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Styles'],
+            ['Format'],
+            ['FontSize'],
+            ['Font'],
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
+
 
 DISQUS_API_KEY = 'MG8zUtnOVEOOLkBrAdzMRd1m7EE8Q6ETP6lah7OcZCfw6DMacEBPGfZbrQOkRjt5'
 DISQUS_WEBSITE_SHORTNAME = 'salonexpert'
@@ -158,7 +176,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 ADMIN_REORDER = [
     #'auth',
     'admin',
-    'sites',
+    #'sites',
     'homepage',
     'games',
     'blog',

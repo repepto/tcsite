@@ -57,11 +57,11 @@ def posts(request):
     if front_lim < paginator.num_pages + 1:
         front_placeholder = True
 
-    for i in range(0,posts_page.__len__()):
-        if(posts_page[i].block1):
-            posts_page[i].block1=posts_page[i].block1[:350] + '...'
-        else:
-           posts_page[i].block2=posts_page[i].block2[:350] + '...'
+    """for i in range(0,posts_page.__len__()):
+        if posts_page[i].top_set.first().text:
+            posts_page[i].top_set.first().text = posts_page[i].top_set.first().text[:350] + '...'
+        elif posts_page[i].bottom_set.first().text:
+            posts_page[i].bottom_set.first().text = posts_page[i].bottom_set.first().text[:350] + '...'"""
 
 
     top_media = TopMedia.objects.first()
@@ -94,14 +94,20 @@ def post(request, title):
 
     next_title=next_post.title
     next_slogan=next_post.slogan
+    next_bg = next_post.top_image.url
 
 
     carousel = p.carousel_set.all()
+    topset = p.top_set.all()
+    bset = p.bottom_set.all()
 
     return render(request,'blog/post.html', {
         'post':p,
+        'top':topset,
+        'bottom':bset,
         'carousel':carousel,
         'next':next_title,
         'next_slogan':next_slogan,
+        'next_bg':next_bg,
         'tags':tags
     })

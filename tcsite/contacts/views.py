@@ -16,7 +16,7 @@ def send(request):
     send_mail('Site message', request.POST.get('cmessage'), request.POST.get('cemail'),
               ['tabletcrushers@gmail.com'], fail_silently=False);
 
-    data = {'aaaa':'111'}
+    data = {'status':'ok'}
 
     dataj=json.dumps(data)
 

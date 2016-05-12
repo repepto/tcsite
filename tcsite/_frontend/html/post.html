@@ -19,9 +19,14 @@
 						<!-- POST CONTENT -->
 						<article class="post">
 
-                            {% if post.block1 %}
-                                {{ post.block1 | safe }}
-                            {% endif %}
+                            {% for block in top %}
+                                {% if block.text %}<p>{{ block.text|safe }}</p>{% endif %}
+                                {% if block.video %}
+                                    <iframe width="420" height="284" src="http://www.youtube.com/embed/{{ block.video }}" frameborder="0" allowfullscreen></iframe>
+                                    <br>
+                                {% endif %}
+                                {% if block.image %}<p><img src="{{ block.image.url }}" alt=""></p>{% endif %}
+                            {% endfor %}
 
 
 							<div class="owl-carousel slider">
@@ -36,31 +41,14 @@
 
                             </div>
 
-                            {% if post.block2 %}
-                                {{ post.block2 | safe }}
-                            {% endif %}
-
-                            {% if post.image1 %}
-                                <p><img src="{{ post.image1.url }}" alt=""></p>
-                            {% endif %}
-
-                            {% if post.block3 %}
-                                {{ post.block3 | safe }}
-                            {% endif %}
-
-                            {% if post.image2 %}
-                                <p><img src="{{ post.image2.url }}" alt=""></p>
-                            {% endif %}
-
-                            {% if post.block4 %}
-                                {{ post.block4 | safe }}
-                            {% endif %}
-
-                            {% if post.image3 %}
-                                <p><img src="{{ post.image3.url }}" alt=""></p>
-                            {% endif %}
-
-							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                            {% for block in bottom %}
+                                {% if block.text %}<p>{{ block.text|safe }}</p>{% endif %}
+                                {% if block.video %}
+                                    <iframe width="420" height="284" src="http://www.youtube.com/embed/{{ block.video }}" frameborder="0" allowfullscreen></iframe>
+                                    <br>
+                                {% endif %}
+                                {% if block.image %}<p><img src="{{ block.image.url }}" alt=""></p>{% endif %}
+                            {% endfor %}
 
 						</article>
 						<!-- /POST CONTENT -->
@@ -86,7 +74,7 @@
 		<!-- /POST -->
 
 		<!-- POST NAVIGATION -->
-		<section class="module p-0" data-background="{{ post.middle_background.url }}">
+		<section class="module p-0" data-background="{{ next_bg }}">
 			<a href="../{{ next }}" class="post-navigation">
 				<h6 class="post-nav-subtitle">Следующий пост</h6>
 				<h2 class="post-nav-title">{{ next }}</h2>

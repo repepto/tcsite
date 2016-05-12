@@ -14,10 +14,12 @@
 				<!-- MODULE TITLE -->
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
-						<h2 class="module-title font-alt">поговорим?</h2>
+						<h2 class="module-title font-alt">на связи</h2>
+                        {% if contact.slogan %}
 						<p class="module-subtitle">
-                            Спрашивайте. Предлагайте. Критикуйте. Мы всегда открыты для общения и обязательно ответим вам!
+                           {{ contact.slogan }}
                         </p>
+                        {% endif %}
 					</div>
 				</div>
 				<!-- /MODULE TITLE -->
