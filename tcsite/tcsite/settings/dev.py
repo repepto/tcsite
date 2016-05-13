@@ -15,3 +15,5 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+HTML_MINIFY = True

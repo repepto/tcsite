@@ -1,5 +1,6 @@
 a.*
 *.pyc
+__pycache__/*
 local.py
-/misc
-tcsite/media
+/misc/*
+tcsite/media/*
