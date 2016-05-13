@@ -1,6 +1,9 @@
 ﻿from django.db import models
 from adminsortable.models import SortableMixin
-
+from PIL import Image as Img
+from io import StringIO
+from  io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 class CarouselObj(models.Model):
     image = models.ImageField('Картинка 1600x1066', upload_to='home/carousel_images')
@@ -20,7 +23,18 @@ class CarouselObj(models.Model):
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     def __str__(self):
-        return 'Для карусели: ' + self.toptitle
+        return self.toptitle + '; ' + self.middletitle + '; ' + self.bottomtitle
+    """
+    #custom image quality
+    def save(self, *args, **kwargs):
+        if self.image:
+            output = BytesIO()
+            img = Img.open(self.image)
+            img.save(output, 'JPEG', quality=70)
+            output.seek(0)
+            self.image = InMemoryUploadedFile(output,'ImageField', "%s.jpg" %self.image.name.split('.')[0], 'image/jpeg', output.tell(), None)
+        super(CarouselObj, self).save(*args, **kwargs)
+    """
 
 
 class TopVideo(models.Model):
