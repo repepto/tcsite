@@ -1,11 +1,10 @@
 ﻿from django.db import models
 from adminsortable.models import SortableMixin
 from PIL import Image as Img
-from io import StringIO
 from  io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
-class CarouselObj(models.Model):
+class CarouselObj(SortableMixin):
     image = models.ImageField('Картинка 1600x1066', upload_to='home/carousel_images')
     toptitle=models.CharField('Верхняя надпись',max_length=49,blank=True)
     middletitle=models.CharField('Спедняя надпись(большая)', max_length=49, blank=True)
