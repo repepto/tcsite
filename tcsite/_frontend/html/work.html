@@ -16,17 +16,17 @@
 						<!-- PORTFOLIO CONTENT -->
 						<article class="portfolio-post post">
 
-							<h4>{{ work.top_title }}</h4>
-							<blockquote><p>{{ work.top_description_italic }}</p></blockquote>
-
-							<p>{{ work.top_description }}</p>
+                            {% if work.text0 %}
+                                {{ work.text0|safe }}
+                            {% endif %}
 
 							{% if work.video_id %}
                                 <iframe width="420" height="284" src="http://www.youtube.com/embed/{{ work.video_id }}" frameborder="0" allowfullscreen></iframe>
                              {% endif %}
 
-							<h4>{{ work.midlle_title }}</h4>
-							<p>{{ work.middle_description }}</p>
+							{% if work.text1 %}
+                                {{ work.text1|safe }}
+                            {% endif %}
 
                             <div class="owl-carousel slider">
 
@@ -37,8 +37,9 @@
                                 {% endfor %}
 							</div>
 
-							<h4>{{ work.bottom_title }}</h4>
-							<p>{{ work.bottom_description }}</p>
+							{% if work.text2 %}
+                                {{ work.text2|safe }}
+                            {% endif %}
 
 							<h6><b>Клиент:</b>{{ work.client }}</h6>
 

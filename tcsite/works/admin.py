@@ -14,18 +14,14 @@ class ScreenshotInline(SortableStackedInline):
 
 class SortableAdminClass(SortableAdmin):
     fieldsets = [
-        ('Preview image: 800x600', {'fields' : ['preview_image']}),
-        ('Top image: 1000x600', {'fields' : ['top_image']}),
+        (None, {'fields' : ['preview_image']}),
+        (None, {'fields' : ['top_image']}),
         (None, {'fields' : ['name']}),
         (None, {'fields' : ['slogan']}),
-        (None, {'fields' : ['top_title']}),
-        (None, {'fields' : ['top_description_italic']}),
-        (None, {'fields' : ['top_description']}),
+        (None, {'fields' : ['text0']}),
         (None, {'fields' : ['video_id']}),
-        (None, {'fields' : ['midlle_title']}),
-        (None, {'fields' : ['middle_description']}),
-        (None, {'fields' : ['bottom_title']}),
-        (None, {'fields' : ['bottom_description']}),
+        (None, {'fields' : ['text1']}),
+        (None, {'fields' : ['text2']}),
         (None, {'fields' : ['client']}),
         (None, {'fields' : ['tags']}),
     ]

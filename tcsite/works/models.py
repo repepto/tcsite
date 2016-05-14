@@ -1,6 +1,7 @@
 ﻿from django.db import models
 from adminsortable.models import SortableMixin
 from adminsortable.fields import SortableForeignKey
+from ckeditor.fields import RichTextField
 
 class AllTags(models.Model):
     tags=models.CharField('Тэги через "," без пробелов', max_length=140)
@@ -20,16 +21,18 @@ class Work(SortableMixin):
     top_image = models.ImageField('Картинка-заставка 1600 на 1066', upload_to='works/top_images')
     name=models.CharField('Название работы (крупное на заставке)', max_length=49)
     preview_image = models.ImageField('Картинка предпросмотра 800 на 600', upload_to='works/preview_images')
-    slogan=models.CharField('Девиз заставки', max_length=49, blank=True)
-    top_title=models.CharField('Заголовок 1', max_length=49, blank=True)
-    top_description_italic=models.TextField('Текст - девиз (наклонный) 1', blank=True)
-    top_description=models.TextField('Текст 1', blank=True)
+    slogan=models.CharField('Девиз заставки', max_length=140, blank=True)
+
+    text0 = RichTextField(blank=True, verbose_name = 'Верхний текстовый блок')
+
     video_id=models.CharField('Видео (код ютуба)', max_length=49, blank=True)
-    midlle_title=models.CharField('Заголовок 2 (под видео)',max_length=49, blank=True)
-    middle_description=models.TextField('Текст 2 (под видео)', blank=True)
-    bottom_title=models.CharField('Заголовок 3 (под каруселью)', max_length=49, blank=True)
-    bottom_description=models.TextField('Текст 3 (под каруселью)', blank=True)
+
+    text1 = RichTextField(blank=True, verbose_name = 'Средний текстовый блок (под видео)')
+
+    text2 = RichTextField(blank=True, verbose_name = 'Нижний текстовый блок (под каруселью)')
+
     client=models.CharField('Для клиента: ', max_length=49, blank=True)
+
     tags=models.CharField('Тэги работы', max_length=70, blank=True)
 
     class Meta:

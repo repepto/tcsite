@@ -68,6 +68,7 @@ DISQUS_API_KEY = 'MG8zUtnOVEOOLkBrAdzMRd1m7EE8Q6ETP6lah7OcZCfw6DMacEBPGfZbrQOkRj
 DISQUS_WEBSITE_SHORTNAME = 'salonexpert'
 
 MIDDLEWARE_CLASSES = [
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,7 +80,12 @@ MIDDLEWARE_CLASSES = [
     'admin_reorder.middleware.ModelAdminReorder',
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
+
+CACHE_MIDDLEWARE_ALIAS='default'
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
+
 
 ROOT_URLCONF = 'tcsite.urls'
 
