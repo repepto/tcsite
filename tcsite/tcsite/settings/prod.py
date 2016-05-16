@@ -7,11 +7,10 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['31.131.24.99']
 
-CACHE_MIDDLEWARE_SECONDS = 21 * 60
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+	    'LOCATION': 'localhost:11211',
         'NAME': 'sedb',
         'USER': 'se',
         'PASSWORD': os.environ["SE_DB_PASSWORD"],
@@ -23,11 +22,12 @@ DATABASES = {
 CACHES = {
       'default': {
         'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
-        'LOCATION': '31.131.24.99:11211',
-        'TIMEOUT': 21 * 60,
+	    'LOCATION': '127.0.0.1:11211',
+        'TIMEOUT': None,
         'BINARY': True,
         'OPTIONS': {
-            'tcp_nodelay': True
+            'tcp_nodelay': True,
+            'no_block': True,
         }
       }
     }

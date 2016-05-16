@@ -1,8 +1,10 @@
 ﻿{% extends "tcsite/index.html" %}
 
-{%  block a1 %}<a class="dropdown-toggle currentPage" data-toggle="dropdown">работы</a>{%  endblock %}
-
 {%  block content %}
+    {% load cache %}
+    {% cache 999999 se_template_works ctag %}
+
+    {%  block a1 %}<a class="dropdown-toggle currentPage" data-toggle="dropdown">работы</a>{%  endblock %}
 
     {% with top_img=media.image.url title=media.title slogan=media.slogan %}
         {% include "tcsite/top_img.html" %}
@@ -35,18 +37,19 @@
 
 						{% for obj in previews %}
 
-						<article class="work-item {% for tag in obj.tags %}{{ tag }} {% endfor %}">
-							<div class="work-wrapper">
-								<div class="work-thumbnail">
-									<img src="{{ obj.url }}" alt="">
-								</div>
-								<div class="work-caption">
-									<h3 class="work-title font-alt">{{ obj.name }}</h3>
-									<span class="work-category font-serif"><a href="{{ obj.name }}">{{ obj.slogan }}</a></span>
-								</div>
-								<a href="{{ obj.name }}" class="work-link"></a>
-							</div>
-						</article>
+
+                            <article class="work-item {% for tag in obj.tags %}{{ tag }} {% endfor %}">
+                                <div class="work-wrapper">
+                                    <div class="work-thumbnail">
+                                        <img src="{{ obj.url }}" alt="">
+                                    </div>
+                                    <div class="work-caption">
+                                        <h3 class="work-title font-alt">{{ obj.name }}</h3>
+                                        <span class="work-category font-serif"><a href="{{ obj.id }}">{{ obj.slogan }}</a></span>
+                                    </div>
+                                    <a href="{{ obj.id }}" class="work-link"></a>
+                                </div>
+                            </article>
 
 
                         {% endfor %}
@@ -59,6 +62,9 @@
 
 			</div>
 		</section>
+
+    {% endcache %}
+
     {% include "tcsite/footer.html" %}
 
 {% endblock %}

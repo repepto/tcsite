@@ -1,6 +1,9 @@
 ﻿{% extends "tcsite/index.html" %}
 {%  block content %}
 
+    {% load cache %}
+    {% cache 999999 se_template_work w_id %}
+
     {% with top_img=work.top_image.url title=work.name slogan=work.slogan %}
         {% include "tcsite/top_img.html" %}
 	{% endwith %}
@@ -116,7 +119,7 @@
 			</div>
 
 		</section>
-
+{% endcache %}
 
 {% include "tcsite/footer.html" %}
 

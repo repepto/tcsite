@@ -1437,7 +1437,7 @@ blockquote cite{
 	color:#fff;
 }
 
-.post-navigation h1, .post-navigation h2, .post-navigation h3, .post-navigation h4, .post-navigation h5, .post-navigation h6{
+.post-navigation p, .post-navigation h1, .post-navigation h2, .post-navigation h3, .post-navigation h4, .post-navigation h5, .post-navigation h6 {
 	color:#fff !important;
 }
 

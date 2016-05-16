@@ -1,4 +1,4 @@
-﻿<section id="hero" class="module-hero bg-dark-30 js-fullheight" data-background="assets/images/module-4.jpg">
+﻿<section id="hero" class="module-hero bg-dark-30 js-fullheight" {% if video_obj.bg_image %}data-background="{{ video_obj.bg_image.url }}"{% endif %}>
 
     <div class="hero-caption">
         <div class="hero-text">

@@ -75,17 +75,20 @@
 
 		<!-- POST NAVIGATION -->
 		<section class="module p-0" data-background="{{ next_bg }}">
-			<a href="../{{ next }}" class="post-navigation">
+			<a href="../{{ next_id }}" class="post-navigation">
 				<h6 class="post-nav-subtitle">Следующий пост</h6>
 				<h2 class="post-nav-title">{{ next }}</h2>
-                <p class="hero-subtitle font-serif">{{ next_slogan }}</p>
+                <p class="hero-subtitle font-serif">{{ next_slogan }}</p >
 			</a>
 		</section>
 		<!-- /POST NAVIGATION -->
 
 		<!-- COMMENTS MODULE -->
+    {% load cache %}
+    {% cache 0 comments %}
         {% load disqus_tags %}
         <div style="margin: 0 auto; padding: 70px; max-width: 910px">{% disqus_show_comments %}</div>
+    {% endcache %}
 
     {% include "tcsite/footer.html" %}
 {% endblock %}

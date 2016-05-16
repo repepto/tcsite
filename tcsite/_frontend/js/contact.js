@@ -58,7 +58,7 @@
 						} else {
 							ajaxResponse.html(result.message);
 							$('#sendResult').sendPopup();
-							$('#sendMessage').text('sent');
+							$('#sendMessage').text('Уже читаем )');
 						}
 					}
 				});

@@ -1,13 +1,15 @@
 ﻿{% extends "tcsite/index.html" %}
 
-{%  block a4 %}<li class="currentPage">контакты</li>{%  endblock %}
-
 {%  block content %}
+
+{% load cache %}
+{% cache 999999 template_contacts %}
+
 <section class="module-map">
     <div id="map" data-address="{{ contact.map_adress }}"></div>
 </section>
 
-<!-- CONTACT -->
+    {%  block a4 %}<li class="currentPage">контакты</li>{%  endblock %}
 		<section class="module">
 			<div class="container-fluid container-custom">
 
@@ -93,7 +95,10 @@
         <h6 id="sendMessage">succesfull</h6>
 
     </div>
-    {% include "tcsite/footer.html" %}
+{% endcache %}
+
+{% include "tcsite/footer.html" %}
+
 {% endblock %}
 
 {% block addJs %}

@@ -1,17 +1,17 @@
 {% extends "tcsite/index.html" %}
 
-{%  block a3 %}
-    <li class="currentPage">салон</li>
-{%  endblock %}
+{% block a3 %}<li class="currentPage">салон</li>{% endblock %}
 
 {%  block content %}
 
+
+    {% load cache %}
+    {% cache 999999 se_template_about %}
 
         {% with bg_url=about.top_image.url title=about.title slogan=about.slogan %}
             {% include "tcsite/top_img_full.html" %}
 	    {% endwith %}
 
-		<!-- SERVICES -->
 		<section class="module">
 			<div class="container-fluid container-custom">
 
@@ -90,7 +90,7 @@
 		<!-- /SERVICES -->
 
 		<!-- COUNTERS -->
-		<section class="module bg-dark-30" data-background="{{ about.middle_bg.url }}">
+		<section class="module bg-dark-30" data-background="{% if about.middle_bg %} {{ about.middle_bg.url }} {% else %} {{ about.top_image.url }} {% endif %}">
 			<div class="container-fluid container-custom">
 
 				<div class="row">
@@ -288,6 +288,9 @@
 			</div>
 		</section>
     {% endif %}
-		{% include "tcsite/footer.html" %}
+
+    {% endcache %}
+
+    {% include "tcsite/footer.html" %}
 
 {% endblock %}

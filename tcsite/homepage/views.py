@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.template import RequestContext, loader
 from django.http import HttpResponse
+from django.views.decorators.cache import never_cache
+
+from tcsite.cache_utils import invalidate_template_fragment, clear_blog_cache
 
 from .models import CarouselObj, TopVideo
 
-#showvideo = True
-
+@never_cache
 def homepage(request):
 
     if 'showvideo' in request.COOKIES:
@@ -18,9 +20,8 @@ def homepage(request):
         context = {'video_obj':video_obj}
         response = HttpResponse()
         response.set_cookie('showvideo', 'off')
-        requestContext=RequestContext(request, context)
         template=loader.get_template('homepage/home.html')
-        renderTemplate = template.render(requestContext)
+        renderTemplate = template.render(context)
         response.write(renderTemplate)
         return response
     else:
@@ -28,8 +29,7 @@ def homepage(request):
         context = {'images':images}
         response = HttpResponse()
         response.set_cookie('showvideo', 'on')
-        requestContext=RequestContext(request, context)
         template=loader.get_template('homepage/home.html')
-        renderTemplate = template.render(requestContext)
+        renderTemplate = template.render(context)
         response.write(renderTemplate)
         return response

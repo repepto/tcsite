@@ -5,8 +5,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CACHE_MIDDLEWARE_SECONDS = 1
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -26,3 +24,5 @@ CACHES = {
 }
 
 HTML_MINIFY = True
+
+SERVER_NAME='localhost'

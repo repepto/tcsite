@@ -13,20 +13,9 @@ class ScreenshotInline(SortableStackedInline):
     extra = 0
 
 class SortableAdminClass(SortableAdmin):
-    fieldsets = [
-        (None, {'fields' : ['preview_image']}),
-        (None, {'fields' : ['top_image']}),
-        (None, {'fields' : ['name']}),
-        (None, {'fields' : ['slogan']}),
-        (None, {'fields' : ['text0']}),
-        (None, {'fields' : ['video_id']}),
-        (None, {'fields' : ['text1']}),
-        (None, {'fields' : ['text2']}),
-        (None, {'fields' : ['client']}),
-        (None, {'fields' : ['tags']}),
-    ]
 
     inlines = [ScreenshotInline]
+
 
 admin.site.register(AllTags, LimitedAdmin)
 

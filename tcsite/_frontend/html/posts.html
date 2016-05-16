@@ -1,12 +1,13 @@
 {% extends "tcsite/index.html" %}
 
-{%  block a2 %}<a class="dropdown-toggle defaultcursor currentPage" data-toggle="dropdown">блог</a>{% endblock %}
-
 {%  block content %}
 
     {% with top_img=media.top_image.url title=media.title slogan=media.slogan %}
         {% include "tcsite/top_img.html" %}
 	{% endwith %}
+
+
+{%  block a2 %}<a class="dropdown-toggle defaultcursor currentPage" data-toggle="dropdown">блог</a>{% endblock %}
 
 <section class="module">
     <div class="container-fluid container-custom">
@@ -16,7 +17,6 @@
             <div class="col-sm-8 col-sm-offset-2">
 
             {% for post in posts %}
-                <br>
                 <article class="post">
 
                     {% if post.video %}
@@ -38,12 +38,12 @@
                     {% endif %}
 
                     <div class="post-header">
-                        <h2 class="post-title font-alt"><a href="{{ post.title }}">{{ post.title }}</a></h2>
-                        <a class="hero-subtitle font-serif m-t-40 top_m_30" href="{{ post.title }}">{{ post.slogan }}</a>
+                        <h2 class="post-title font-alt"><a href="{{ post.id }}">{{ post.title }}</a></h2>
+                        <a class="hero-subtitle font-serif m-t-40 top_m_30" href="{{ post.id }}">{{ post.slogan }}</a>
                     </div>
                     <div class="post-content">
                         <p>{{ post.txt }}</p>
-                        <a class="post-more" href="{{ post.title }}">Подробнее →</a>
+                        <a class="post-more" href="{{ post.id }}">Подробнее →</a>
                     </div>
                     <hr class="divider">
                 </article>
@@ -56,11 +56,11 @@
 
 
                 {% if posts.has_previous or posts.has_next %}
-                    <h6 class="lightcolor pad0">page {{ posts.number }} of {{ posts.paginator.num_pages }}</h6>
+                    <h6 class="lightcolor pad0">страница {{ posts.number }} из {{ posts.paginator.num_pages }}</h6>
                     <div class="pagination font-alt">
                         <ul class="pagination">
                             {% if posts.has_previous %}
-                                <li><a href="?cname={{ posts.previous_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+                                <li><a href="?cname={{ posts.previous_page_number }}{% if current_tag %}&tag={{ current_tag }}{% endif %}"><i class="fa fa-angle-left"></i></a></li>
                             {% endif %}
 
                             {% if back_placeholder %}
@@ -68,13 +68,13 @@
                             {% endif %}
 
                             {% for i in back_range %}
-                                <li><a href="?cname={{ i }}">{{ i }}</a></li>
+                                <li><a href="?cname={{ i }}{% if current_tag %}&tag={{ current_tag }}{% endif %}">{{ i }}</a></li>
                             {% endfor %}
 
                             <li class="active"><span>{{ cur_page }}</span></li>
 
                             {% for i in front_range %}
-                                <li><a href="?cname={{ i }}">{{ i }}</a></li>
+                                <li><a href="?cname={{ i }}{% if current_tag %}&tag={{ current_tag }}{% endif %}">{{ i }}</a></li>
                             {% endfor %}
 
                             {% if front_placeholder %}
@@ -83,12 +83,13 @@
 
                             <!--<li class="active"><span>2</span></li>-->
                             {% if posts.has_next %}
-                                <li><a href="?cname={{ posts.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+                                <li><a href="?cname={{ posts.next_page_number }}{% if current_tag %}&tag={{ current_tag }}{% endif %}"><i class="fa fa-angle-right"></i></a></li>
                             {% endif %}
 
                             <li>
                                 <form action="" class="left" method="get" role="form" novalidate>
-                                    <input value="{{ iv }}" min="1" max="{{ posts.paginator.num_pages }}"type="number" id="name" class="paginput" name="cname" required="">
+                                    <input value="{{ iv }}" min="1" max="{{ posts.paginator.num_pages }}"type="number" class="paginput" name="cname" required="">
+                                    {% if current_tag %}<input type="hidden" name="tag" value="{{ current_tag }}" />{% endif %}
                                     <button type="submit" class="pagbutton">&#9658;</button>
 
                                 </form>
@@ -110,5 +111,6 @@
 
     </div>
 </section>
+
 {% include "tcsite/footer.html" %}
 {% endblock %}

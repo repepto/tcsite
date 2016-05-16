@@ -6,7 +6,7 @@ class About(models.Model):
     title = models.CharField('Заголовок', max_length=70)
     slogan = models.CharField('Девиз', max_length=420, blank=True)
     promo_image = models.ImageField('Картинка (наши услуги) 1528x576', upload_to='about/promo_image')
-    middle_bg = models.ImageField('Фон под иконками достижений 1600x1066', upload_to='about/middle_bg')
+    middle_bg = models.ImageField('Фон под иконками достижений 1600x1066', upload_to='about/middle_bg', blank=True)
     service_slogan = models.CharField('Девиз услуг', max_length=420, blank=True)
     team_slogan = models.CharField('Девиз команды', max_length=420, blank=True)
 

@@ -40,6 +40,7 @@ class TopVideo(models.Model):
     title=models.CharField('Заголовок', max_length=49,blank=True)
     slogan=models.CharField('Девиз', max_length=49, blank=True)
     video_id=models.CharField('Видео (код ютуба)', max_length=49, blank=True)
+    bg_image = models.ImageField('Фон 1600х1060 (пока видео не загрузилось)', blank=True)
     button=models.CharField('Надпись на кнопке', max_length=49, blank=True)
     href=models.CharField('Сылка кнопки', max_length=49, blank=True)
 
