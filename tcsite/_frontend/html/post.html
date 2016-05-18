@@ -1,5 +1,9 @@
 {% extends "tcsite/index.html" %}
 
+{% if post.meta_title %}{% block title %}{{ post.meta_title }}{% endblock %}{% endif %}
+{% if post.meta_keywords %}{% block keywords %}{{ post.meta_keywords }}{% endblock %}{% endif %}
+{% if post.meta_description %}{% block description %}{{ post.meta_description }}{% endblock %}{% endif %}
+
 {%  block a2 %}<a class="dropdown-toggle defaultcursor currentPage" data-toggle="dropdown">блог</a>{% endblock %}
 
 {%  block content %}
@@ -15,7 +19,6 @@
 				<div class="row">
 
 					<div class="col-sm-8 col-sm-offset-2">
-
 						<!-- POST CONTENT -->
 						<article class="post">
 
@@ -56,7 +59,7 @@
 						<!-- TAGS -->
 						<div class="tags font-serif">
 
-                            {% for tag in tags %}
+                            {% for tag in post_tags %}
 
 							<a href="../?cname=1&tag={{ tag }}">{{ tag }}</a>
 

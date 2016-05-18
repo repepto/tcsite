@@ -13,8 +13,8 @@ class CarouselObj(SortableMixin):
     href=models.CharField('Ссылка для кнопки', max_length=49, blank=True)
 
     class Meta:
-        verbose_name = 'Для карусели'
-        verbose_name_plural = 'Для карусели'
+        verbose_name = 'Инфо-блоки для карусели'
+        verbose_name_plural = '1: Инфо-блоки для карусели'
         ordering = ['the_order']
 
 
@@ -46,7 +46,7 @@ class TopVideo(models.Model):
 
     class Meta:
         verbose_name = 'Видео-заставка'
-        verbose_name_plural = 'Видео-заставка'
+        verbose_name_plural = '2: Видео-заставка'
 
     def __str__(self):
         return 'Видео-заставка: ' + self.title

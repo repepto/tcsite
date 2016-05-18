@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Contacts
+from .models import Contacts, SocialLinks, MetaTags
 # Register your models here.
 
 class LimitedAdmin(admin.ModelAdmin):
@@ -12,3 +12,5 @@ class LimitedAdmin(admin.ModelAdmin):
             return True
 
 admin.site.register(Contacts, LimitedAdmin)
+admin.site.register(MetaTags, LimitedAdmin)
+admin.site.register(SocialLinks, LimitedAdmin)

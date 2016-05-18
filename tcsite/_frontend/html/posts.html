@@ -1,5 +1,9 @@
 {% extends "tcsite/index.html" %}
 
+{% if blog_title %}{% block title %}{{ blog_title }}{% endblock %}{% endif %}
+{% if blog_keywords %}{% block keywords %}{{ blog_keywords }}{% endblock %}{% endif %}
+{% if blog_description %}{% block description %}{{ blog_description }}{% endblock %}{% endif %}
+
 {%  block content %}
 
     {% with top_img=media.top_image.url title=media.title slogan=media.slogan %}

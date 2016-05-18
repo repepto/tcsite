@@ -4,7 +4,7 @@ from adminsortable.admin import SortableAdmin, SortableStackedInline
 
 from contacts.admin import LimitedAdmin
 
-from .models import Post, Carousel, AllTags, TopMedia, Top, Bottom
+from .models import Post, Carousel, AllTags, TopMedia, Top, Bottom, BlogMetaTags
 
 class CarouselInline(SortableStackedInline):
     model = Carousel
@@ -19,12 +19,10 @@ class BottomInline(SortableStackedInline):
     extra = 0
 
 class SortableAdminClass(SortableAdmin):
-
     inlines = [TopInline, CarouselInline, BottomInline]
 
 
 admin.site.register(Post, SortableAdminClass)
-
 admin.site.register(AllTags, LimitedAdmin)
-
 admin.site.register(TopMedia, LimitedAdmin)
+admin.site.register(BlogMetaTags, LimitedAdmin)

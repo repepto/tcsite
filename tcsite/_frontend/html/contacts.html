@@ -2,9 +2,6 @@
 
 {%  block content %}
 
-{% load cache %}
-{% cache 999999 template_contacts %}
-
 <section class="module-map">
     <div id="map" data-address="{{ contact.map_adress }}"></div>
 </section>
@@ -95,7 +92,6 @@
         <h6 id="sendMessage">succesfull</h6>
 
     </div>
-{% endcache %}
 
 {% include "tcsite/footer.html" %}
 

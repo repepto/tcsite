@@ -3,7 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.cache import cache
 from django.conf import settings
 
-from .models import Post, TopMedia
+from .models import Post, TopMedia, BlogMetaTags
 
 def posts(request):
     tag = request.GET.get('tag')
@@ -73,16 +73,21 @@ def posts(request):
 
         top_media = TopMedia.objects.first()
 
+        meta_tags=BlogMetaTags.objects.first()
+
         context =  {
-          'posts':posts_page,
-          'media':top_media,
-          'back_range':back_range,
-          'front_range':front_range,
-          'cur_page':p_int,
-          'front_placeholder':front_placeholder,
-          'back_placeholder':back_placeholder,
-          'iv':iv,
-          'current_tag':tag
+            'posts':posts_page,
+            'media':top_media,
+            'back_range':back_range,
+            'front_range':front_range,
+            'cur_page':p_int,
+            'front_placeholder':front_placeholder,
+            'back_placeholder':back_placeholder,
+            'iv':iv,
+            'current_tag':tag,
+            'blog_title':meta_tags.title,
+            'blog_keywords':meta_tags.keywords,
+            'blog_description':meta_tags.description
         }
 
         cache.set(key, context, settings.CACHE_MIDDLEWARE_SECONDS)
@@ -122,11 +127,8 @@ def post(request, title):
             'next_id':next_id,
             'next_slogan':next_slogan,
             'next_bg':next_bg,
-            'tags':tags
+            'post_tags':tags
         }
-
-        print('set__post______________________________________!!!!!!!!!!!!!!!!!!!!!')
-        print(key)
         cache.set(key, context, settings.CACHE_MIDDLEWARE_SECONDS)
 
     return render(request,'blog/post.html', context)

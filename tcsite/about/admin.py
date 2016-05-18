@@ -1,10 +1,9 @@
 from django.contrib import admin
+from adminsortable.admin import NonSortableParentAdmin, SortableStackedInline
 
 from contacts.admin import LimitedAdmin
 
-from adminsortable.admin import NonSortableParentAdmin, SortableStackedInline
-
-from .models import About, Member, Review, Brand
+from .models import About, Member, Review, Brand, AboutMetaTags, Service
 
 class MemberInline(SortableStackedInline):
     model = Member
@@ -18,8 +17,13 @@ class BrandInline(SortableStackedInline):
     model = Brand
     extra = 0
 
+class ServiceInline(SortableStackedInline):
+    model = Service
+    extra = 0
+
 class AboutAdmin(NonSortableParentAdmin, LimitedAdmin):
-    inlines = [MemberInline, ClientReviewInline, BrandInline]
+    inlines = [ServiceInline, MemberInline, ClientReviewInline, BrandInline]
 
 
 admin.site.register(About, AboutAdmin)
+admin.site.register(AboutMetaTags, LimitedAdmin)

@@ -1,21 +1,57 @@
-from django.core.cache import cache
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-from django.core.cache.utils import make_template_fragment_key
 
-from .models import Work
-from .models import AllTags
+from .models import Work, AllTags, WorksMetaTags, Media
+
 
 @receiver(post_save, sender = Work)
+@receiver(post_save, sender = Media)
 @receiver(post_delete, sender = Work)
-def clear_blog_cache(sender, instance, **kwargs):
+@receiver(post_save, sender = WorksMetaTags)
+def clear_work_cache(sender, instance, **kwargs):
+    from django.http import HttpRequest
     tags = AllTags.objects.first().tags.split(',')
-    tags.append(None)
 
-    for t in tags:
-        key = make_template_fragment_key('se_template_works', [t])
-        print(key)
-        cache.delete(key)
+    request = HttpRequest()
+    request.META = {'SERVER_NAME':'127.0.0.1','SERVER_PORT':8000}
+    request.LANGUAGE_CODE = 'en-us'
+    request.path = '/works/' + str(instance.id) + '/'
+    clear_view_cache(request)
+    request.path = '/works/'
+    clear_view_cache(request)
 
-    key = make_template_fragment_key('se_template_work', [instance.id])
-    cache.delete(key)
+    for tag in tags:
+        if tag:
+            request.META.update({'REQUEST_METHOD':'GET', 'QUERY_STRING': 'tag=' + tag})
+            request.GET.__setitem__(key='tag', value=tag)
+        clear_view_cache(request)
+
+
+def clear_view_cache(fake_request):
+    from django.utils.cache import get_cache_key
+    from django.core.cache import cache
+
+    try:
+        cache_key = get_cache_key(fake_request)
+        if cache_key :
+            if cache.has_key(cache_key):
+                cache.delete(cache_key)
+                return (True, 'successfully invalidated')
+            else:
+                return (False, 'cache_key does not exist in cache')
+        else:
+            raise ValueError('failed to create cache_key')
+    except (ValueError, Exception) as e:
+        return (False, e)
+
+@receiver(post_save, sender = AllTags)
+def clear_all_caches(sender, instance, **kwargs):
+    clear_work_cache(sender, instance)
+
+    from blog.signals import clear_blog_cache
+    from contacts.signals import clear_contact_cache
+    from about.signals import clear_about_cache
+
+    clear_blog_cache(sender, instance)
+    clear_contact_cache(sender)
+    clear_about_cache(sender)

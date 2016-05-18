@@ -1,10 +1,12 @@
 ﻿{% extends "tcsite/index.html" %}
 
-{%  block content %}
-    {% load cache %}
-    {% cache 999999 se_template_works ctag %}
+{% if works_title %}{% block title %}{{ works_title }}{% endblock %}{% endif %}
+{% if works_keywords %}{% block keywords %}{{ works_keywords }}{% endblock %}{% endif %}
+{% if works_description %}{% block description %}{{ works_description }}{% endblock %}{% endif %}
 
-    {%  block a1 %}<a class="dropdown-toggle currentPage" data-toggle="dropdown">работы</a>{%  endblock %}
+{%  block a1 %}<a class="dropdown-toggle currentPage" data-toggle="dropdown">работы</a>{%  endblock %}
+
+{%  block content %}
 
     {% with top_img=media.image.url title=media.title slogan=media.slogan %}
         {% include "tcsite/top_img.html" %}
@@ -31,8 +33,6 @@
 
 					<!-- Portfolio 4 col + gutter -->
 
-
-
 					<div id="works-grid" class="works-grid works-grid-gutter">
 
 						{% for obj in previews %}
@@ -58,12 +58,8 @@
 					</div>
                 </div><!-- works-grid-wrapper -->
 
-
-
 			</div>
 		</section>
-
-    {% endcache %}
 
     {% include "tcsite/footer.html" %}
 

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -84,6 +85,8 @@ MIDDLEWARE_CLASSES = [
 CACHE_MIDDLEWARE_ALIAS='default'
 CACHE_MIDDLEWARE_KEY_PREFIX = ''
 CACHE_MIDDLEWARE_SECONDS = None
+CACHE_EXP_TIME = 999999
+
 #CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
 
@@ -174,7 +177,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 ADMIN_REORDER = [
     #'auth',
     #'admin',
-    'sites',
+    #'sites',
     'homepage',
     'works',
     'blog',

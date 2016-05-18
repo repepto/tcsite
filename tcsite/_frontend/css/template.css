@@ -1822,6 +1822,14 @@ blockquote cite{
 	color: #337ab7;
 }
 
+.iconbox a{
+	text-decoration: underline;
+	color: #337ab7;
+}
+.iconbox ul{
+	text-align: left;
+	margin-left: 21%;
+}
 #sendResult {
 	position:absolute;
 	top:50%;

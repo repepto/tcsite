@@ -1,4 +1,6 @@
-﻿<hr class="divider">
+﻿{% load cache %}
+{% cache 999999 template_footer %}
+<hr class="divider">
 <footer class="footer module-overlay-dark-3">
     <div class="container-fluid container-custom">
 
@@ -22,3 +24,4 @@
 
     </div>
 </footer>
+{% endcache %}

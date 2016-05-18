@@ -10,7 +10,7 @@ class AllTags(models.Model):
 
     class Meta:
         verbose_name = 'Тэги для подменю'
-        verbose_name_plural = 'Тэги для подменю'
+        verbose_name_plural = '2: Тэги для подменю'
 
     def __str__(self):
         return 'Тэги: ' + self.tags
@@ -18,26 +18,25 @@ class AllTags(models.Model):
 
 class Work(SortableMixin):
 
-    top_image = models.ImageField('Картинка-заставка 1600 на 1066', upload_to='works/top_images')
+    top_image = models.ImageField('Верхняя заставка-картинка 1600 на 1066', upload_to='works/top_images')
     name=models.CharField('Название работы (крупное на заставке)', max_length=49)
-    preview_image = models.ImageField('Картинка предпросмотра 800 на 600', upload_to='works/preview_images')
+    preview_image = models.ImageField('Картинка для предпросмотра 800 на 600', upload_to='works/preview_images')
     slogan=models.CharField('Девиз заставки', max_length=140, blank=True)
+    tags=models.CharField('Тэги работы', max_length=70, blank=True)
 
     text0 = RichTextField(blank=True, verbose_name = 'Верхний текстовый блок')
-
     video_id=models.CharField('Видео (код ютуба)', max_length=49, blank=True)
-
     text1 = RichTextField(blank=True, verbose_name = 'Средний текстовый блок (под видео)')
-
     text2 = RichTextField(blank=True, verbose_name = 'Нижний текстовый блок (под каруселью)')
-
     client=models.CharField('Для клиента: ', max_length=49, blank=True)
 
-    tags=models.CharField('Тэги работы', max_length=70, blank=True)
+    meta_title = models.CharField('Заголовок страницы (тэг <title>, до 70 символов)', max_length=70, blank=True)
+    meta_keywords = models.CharField('Ключевые слова через запятую (тэг <keywords>, до 210 символов)', max_length=210, blank=True)
+    meta_description = models.CharField('Описание (тэг <description>, до 210 символов)', max_length=210, blank=True)
 
     class Meta:
         verbose_name = 'Работа'
-        verbose_name_plural = 'Работы'
+        verbose_name_plural = '3: Работы'
         ordering = ['work_order']
 
     # define the field the model should be ordered by
@@ -53,7 +52,7 @@ class Screenshot(SortableMixin):
 
     class Meta:
         verbose_name = 'Картинка 1000 на 600'
-        verbose_name_plural = 'Картинки 1000 на 600'
+        verbose_name_plural = 'Картинки карусели 1000 на 600'
         ordering = ['screenshot_order']
 
     screenshot_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
@@ -68,7 +67,19 @@ class Media(models.Model):
 
     class Meta:
         verbose_name = 'Заставка для работ'
-        verbose_name_plural = 'Заставка для работ'
+        verbose_name_plural = '1: Заставка для работ'
 
     def __str__(self):
-        return 'Заставка для работ'
+        return 'Заставка для работ: ' + self.title
+
+class WorksMetaTags(models.Model):
+    title = models.CharField('Заголовок страницы (тэг <title>, до 70 символов)', max_length=70, blank=True)
+    keywords = models.CharField('Ключевые слова через запятую (тэг <keywords>, до 210 символов)', max_length=210, blank=True)
+    description = models.CharField('Описание (тэг <description>, до 210 символов)', max_length=210, blank=True)
+
+    class Meta:
+        verbose_name = 'МетаТэги'
+        verbose_name_plural = '4: МетаТэги'
+
+    def __str__(self):
+        return 'МетаТэги'

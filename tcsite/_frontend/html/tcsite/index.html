@@ -7,7 +7,9 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>tabletcrushers game design studio</title>
+	<title>{% block title %}{{ meta_title }}{% endblock %}</title>
+    <meta name="Keywords" content="{% block keywords %}{% endblock %}{{ meta_keywords }}">
+    <meta name="description" content="{% block description %}{{ meta_description }}{% endblock %}">
 
 	<!-- Favicons -->
 	<link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
@@ -87,14 +89,14 @@
 
 		<div class="copyright">
 			<div class="social-icons m-b-20">
-				<a href="#" target="_blank" class="fa fa-facebook facebook"></a>
-				<a href="#" target="_blank" class="fa fa-twitter twitter"></a>
-				<a href="#" target="_blank" class="fa fa-instagram instagram"></a>
-				<a href="#" target="_blank" class="fa fa-behance behance"></a>
-				<a href="#" target="_blank" class="fa fa-dribbble dribbble"></a>
+				{% if facebook_href %}<a href="{{ facebook_href }}" target="_blank" class="fa fa-facebook facebook"></a>{% endif %}
+				{% if twitter_href %}<a href="{{ twitter_href }}" target="_blank" class="fa fa-twitter twitter"></a>{% endif %}
+				{% if instagram_href %}<a href="{{ instagram_href }}" target="_blank" class="fa fa-instagram instagram"></a>{% endif %}
+				{% if behance_href %}<a href="{{ behance_href }}" target="_blank" class="fa fa-behance behance"></a>{% endif %}
+				{% if dribble_href %}<a href="{{ dribble_href }}" target="_blank" class="fa fa-dribbble dribbble"></a>{% endif %}
 			</div>
 
-			<p>&copy; 2016 salonexpert</p>
+			<p>&copy; {{ footer_year }} salonexpert</p>
 		</div>
     </div>
 

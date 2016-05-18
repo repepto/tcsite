@@ -1,11 +1,8 @@
 from django.db import models
 
 from adminsortable.models import SortableMixin
-
 from adminsortable.fields import SortableForeignKey
-
 from ckeditor.fields import RichTextField
-
 
 class AllTags(models.Model):
     tags=models.CharField('Тэги через "," без пробелов', max_length=140)
@@ -14,7 +11,7 @@ class AllTags(models.Model):
 
     class Meta:
         verbose_name = 'Тэги для подменю'
-        verbose_name_plural = 'Тэги для подменю'
+        verbose_name_plural = '2: Тэги для подменю'
 
     def __str__(self):
         return 'Тэги: ' + self.tags
@@ -25,12 +22,15 @@ class Post(SortableMixin):
     title=models.CharField(max_length=49, verbose_name = 'Заголовок заставки')
     slogan=models.CharField(max_length=140, blank=True, verbose_name = 'Девиз')
     txt = models.TextField(blank=True, verbose_name = 'Предварительный текст')
-
     tags = models.CharField(max_length=140, blank=True, verbose_name = 'Тэги через "," без пробелов')
+
+    meta_title = models.CharField('Заголовок страницы (тэг <title>, до 70 символов)', max_length=70, blank=True)
+    meta_keywords = models.CharField('Ключевые слова через запятую (тэг <keywords>, до 210 символов)', max_length=210, blank=True)
+    meta_description = models.CharField('Описание (тэг <description>, до 210 символов)', max_length=210, blank=True)
 
     class Meta:
         verbose_name = 'Пост'
-        verbose_name_plural = 'Посты'
+        verbose_name_plural = '3: Посты'
         ordering = ['post_order']
 
     post_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
@@ -97,7 +97,19 @@ class TopMedia(models.Model):
 
     class Meta:
         verbose_name = 'Заставка для блога'
-        verbose_name_plural = 'Заставка для блога'
+        verbose_name_plural = '1: Заставка для блога'
 
     def __str__(self):
         return 'Заставка для блога'
+
+class BlogMetaTags(models.Model):
+    title = models.CharField('Заголовок страницы (тэг <title>, до 70 символов)', max_length=70, blank=True)
+    keywords = models.CharField('Ключевые слова через запятую (тэг <keywords>, до 210 символов)', max_length=210, blank=True)
+    description = models.CharField('Описание (тэг <description>, до 210 символов)', max_length=210, blank=True)
+
+    class Meta:
+        verbose_name = 'МетаТэги'
+        verbose_name_plural = '4: МетаТэги'
+
+    def __str__(self):
+        return 'МетаТэги'
