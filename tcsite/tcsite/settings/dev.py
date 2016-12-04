@@ -8,8 +8,10 @@ ALLOWED_HOSTS = []
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
+        # 'NAME': 'postgres',
+        # 'USER': 'postgres',
+        'NAME': 'm8',
+        'USER': 'm8',
         'PASSWORD': 'repepto',
         'HOST': 'localhost',
         'PORT': '5432',
