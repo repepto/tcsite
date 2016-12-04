@@ -1,4 +1,6 @@
-﻿from django.db import models
+﻿# -*- coding: utf-8 -*-
+
+from django.db import models
 from adminsortable.models import SortableMixin
 from adminsortable.fields import SortableForeignKey
 from ckeditor.fields import RichTextField

@@ -1,4 +1,6 @@
-﻿from django.db import models
+﻿# -*- coding: utf-8 -*-
+
+from django.db import models
 from adminsortable.models import SortableMixin
 from PIL import Image as Img
 from  io import BytesIO
