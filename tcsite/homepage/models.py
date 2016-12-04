@@ -50,3 +50,17 @@ class TopVideo(models.Model):
 
     def __str__(self):
         return 'Видео-заставка: ' + self.title
+
+
+
+class HomeMetaTags(models.Model):
+    title = models.CharField('Заголовок страницы (тэг <title>, до 70 символов)', max_length=70, blank=True)
+    keywords = models.CharField('Ключевые слова через запятую (тэг <keywords>, до 210 символов)', max_length=210, blank=True)
+    description = models.CharField('Описание (тэг <description>, до 210 символов)', max_length=210, blank=True)
+
+    class Meta:
+        verbose_name = 'МетаТэги'
+        verbose_name_plural = '2: МетаТэги'
+
+    def __str__(self):
+        return 'МетаТэги'

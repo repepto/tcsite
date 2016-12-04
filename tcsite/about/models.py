@@ -20,14 +20,14 @@ class About(models.Model):
     promo_href =  models.CharField('Ссылка кнопки (блок с фоном под услугами)', max_length=420, blank=True)
 
     class Meta:
-        verbose_name = 'О салоне'
-        verbose_name_plural = '1: О салоне'
+        verbose_name = 'О мастерской'
+        verbose_name_plural = '1: О мастерской'
         ordering = ['the_order']
 
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     def __str__(self):
-        return "О салоне"
+        return "О мастерской"
 
 class Service(SortableMixin):
     about = models.ForeignKey(About, on_delete=models.CASCADE)

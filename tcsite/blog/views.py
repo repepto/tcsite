@@ -28,8 +28,6 @@ def posts(request):
 
         paginator = Paginator(posts, settings.BLOG_POSTS_PER_PAGE)
 
-        print('numpost = ' + str(paginator.num_pages))
-
         try:
             posts_page = paginator.page(page)
         except PageNotAnInteger:

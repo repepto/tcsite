@@ -2,13 +2,33 @@ import datetime
 from .models import Contacts, SocialLinks, MetaTags
 
 def tags(request):
-    c = Contacts.objects.first()
+    contacts = Contacts.objects.first()
     links = SocialLinks.objects.first()
     metaTags = MetaTags.objects.first()
+
+    if contacts == None:
+        contacts = Contacts(map_adress = 'adress', phone = '777', email = 'email')
+        contacts.save()
+
+    if links == None:
+        links = SocialLinks(
+            facebook = 'facebook_link',
+            twitter='twitter_link',
+            instagram='instagram_link',
+            behance='behance_link',
+            dribble='dribble_link'
+        )
+
+        links.save()
+
+    if metaTags == None:
+        metaTags = MetaTags(title='title',keywords='keywords0,keywords1',description='description')
+        metaTags.save()
+
     return {
-        'footer_adress':c.map_adress,
-        'footer_phone':c.phone,
-        'footer_email':c.email,
+        'footer_adress':contacts.map_adress,
+        'footer_phone':contacts.phone,
+        'footer_email':contacts.email,
         'footer_year':datetime.datetime.now().year,
 
         'facebook_href':links.facebook,

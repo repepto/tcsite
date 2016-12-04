@@ -8,8 +8,10 @@ from .models import Work, AllTags, WorksMetaTags, Media
 @receiver(post_save, sender = Media)
 @receiver(post_delete, sender = Work)
 @receiver(post_save, sender = WorksMetaTags)
+
 def clear_work_cache(sender, instance, **kwargs):
     from django.http import HttpRequest
+
     tags = AllTags.objects.first().tags.split(',')
 
     request = HttpRequest()

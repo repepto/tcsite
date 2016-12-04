@@ -20,7 +20,7 @@ DATABASES = {
 }
 
 CACHES = {
-      'default': {
+    'default': {
         'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
 	    'LOCATION': '127.0.0.1:11211',
         'TIMEOUT': None,
@@ -29,8 +29,8 @@ CACHES = {
             'tcp_nodelay': True,
             'no_block': True,
         }
-      }
     }
+}
 
 #EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 #EMAIL_FILE_PATH = '/tmp/app-messages' # change this to a proper location
