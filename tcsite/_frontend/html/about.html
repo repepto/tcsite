@@ -1,6 +1,10 @@
 {% extends "tcsite/index.html" %}
 
-{% block a3 %}<li class="currentPage">салон</li>{% endblock %}
+{% if ab_title %}{% block title %}{{ ab_title }}{% endblock %}{% endif %}
+{% if ab_keywords %}{% block keywords %}{{ ab_keywords }}{% endblock %}{% endif %}
+{% if ab_description %}{% block description %}{{ ab_description }}{% endblock %}{% endif %}
+
+{% block a3 %}<li class="currentPage">мастерская</li>{% endblock %}
 
 {%  block content %}
 
@@ -10,7 +14,6 @@
 
 		<section class="module">
 			<div class="container-fluid container-custom">
-
 
                 <!-- MODULE TITLE -->
 				<div class="row">

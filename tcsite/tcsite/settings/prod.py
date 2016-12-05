@@ -5,16 +5,16 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in productieon!
 DEBUG = False
 
-ALLOWED_HOSTS = ['31.131.24.99']
+ALLOWED_HOSTS = ['m8.co.ua']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-	    'LOCATION': 'localhost:11211',
-        'NAME': 'sedb',
-        'USER': 'se',
+	'LOCATION': 'localhost:11211',
+        'NAME': 'm8',
+        'USER': 'm8',
         'PASSWORD': os.environ["SE_DB_PASSWORD"],
-        'HOST': '31.131.24.99',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -22,7 +22,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
-	    'LOCATION': '127.0.0.1:11211',
+        'LOCATION': '127.0.0.1:11211',
         'TIMEOUT': None,
         'BINARY': True,
         'OPTIONS': {

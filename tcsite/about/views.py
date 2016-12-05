@@ -21,5 +21,7 @@ def about(request):
         'reviews':reviews,
         'brands':brands,
         'services':services,
-        'about_meta':meta_tags
+        'ab_title':meta_tags.title,
+        'ab_keywords': meta_tags.keywords,
+        'ab_description': meta_tags.description
     })

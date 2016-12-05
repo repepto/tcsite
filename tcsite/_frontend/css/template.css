@@ -68,6 +68,10 @@ iframe{
 	margin-right:10px;
 }
 
+.sidebar .social-icons a:focus{
+	color:rgba(255, 255, 255, .7); !important;
+}
+
 .wrapper{
 	position:relative;
 	margin-left:250px;
@@ -1551,7 +1555,7 @@ blockquote cite{
 }
 
 .works-grid-gutter .work-item{
-	padding:8px 8px;
+	padding:7px 7px;
 }
 
 .work-wrapper{

@@ -2,14 +2,15 @@ from django.core.cache import cache
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
-from .models import Post, AllTags, BlogMetaTags
+from .models import Post, AllTags, BlogMetaTags, TopMedia
 
 from django.conf import settings
 
 @receiver(post_save, sender = BlogMetaTags)
 @receiver(post_save, sender = Post)
 @receiver(post_delete, sender = Post)
-
+@receiver(post_save, sender = TopMedia)
+@receiver(post_delete, sender = TopMedia)
 def clear_blog_cache(sender, instance, **kwargs):
     if AllTags.objects.first() == None:
         t = AllTags(tags='tag0,tag1')

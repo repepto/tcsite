@@ -1,6 +1,6 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-
+from contacts.models import SocialLinks, Contacts, MetaTags
 from .models import Work, AllTags, WorksMetaTags, Media
 
 
@@ -9,13 +9,19 @@ from .models import Work, AllTags, WorksMetaTags, Media
 @receiver(post_delete, sender = Work)
 @receiver(post_save, sender = WorksMetaTags)
 
+@receiver(post_save, sender = SocialLinks)
+@receiver(post_delete, sender = SocialLinks)
+@receiver(post_save, sender = Contacts)
+@receiver(post_delete, sender = MetaTags)
+@receiver(post_save, sender = MetaTags)
+
 def clear_work_cache(sender, instance, **kwargs):
     from django.http import HttpRequest
 
     tags = AllTags.objects.first().tags.split(',')
 
     request = HttpRequest()
-    request.META = {'SERVER_NAME':'127.0.0.1','SERVER_PORT':8000}
+    request.META = {'SERVER_NAME':'m8.co.ua','SERVER_PORT':80}
     request.LANGUAGE_CODE = 'en-us'
     request.path = '/works/' + str(instance.id) + '/'
     clear_view_cache(request)
