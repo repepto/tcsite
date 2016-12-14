@@ -3,12 +3,16 @@ var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var htmlmin = require('gulp-htmlmin');
+var uncss = require('gulp-uncss');
 var watch = require('gulp-watch');
 
 gulp.task('minify-css', function() {
     return gulp.src('css/*.css')
         .pipe(concat('styles.min.css'))
         .pipe(cleanCSS({keepSpecialComments: '0'}))
+        .pipe(uncss({
+            html: ['html/**/*.html']
+        }))
         .pipe(gulp.dest('../assets'));
 });
 
