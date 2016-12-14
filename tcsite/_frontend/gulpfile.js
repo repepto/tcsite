@@ -10,9 +10,7 @@ gulp.task('minify-css', function() {
     return gulp.src('css/*.css')
         .pipe(concat('styles.min.css'))
         .pipe(cleanCSS({keepSpecialComments: '0'}))
-        .pipe(uncss({
-            html: ['html/**/*.html']
-        }))
+        //.pipe(uncss({ html: ['html/**/*.html', 'js/*.*']}))
         .pipe(gulp.dest('../assets'));
 });
 
