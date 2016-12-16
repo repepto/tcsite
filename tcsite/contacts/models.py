@@ -31,15 +31,3 @@ class SocialLinks(models.Model):
 
     def __str__(self):
         return 'Ссылки на соц. сайты'
-
-class MetaTags(models.Model):
-    title = models.CharField('Заголовок сайта (тэг <title>, до 70 символов)', max_length=70, blank=True)
-    keywords = models.CharField('Ключевые слова через запятую (тэг <keywords>, до 210 символов)', max_length=210, blank=True)
-    description = models.CharField('Описание (тэг <keywords>, до 210 символов)', max_length=210, blank=True)
-
-    class Meta:
-        verbose_name = 'Метатэги'
-        verbose_name_plural = '3: Метатэги'
-
-    def __str__(self):
-        return 'Метатэги'

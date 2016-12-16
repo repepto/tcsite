@@ -1,10 +1,11 @@
 import datetime
-from .models import Contacts, SocialLinks, MetaTags
+from .models import Contacts, SocialLinks
+from homepage.models import HomeMetaTags
 
 def tags(request):
     contacts = Contacts.objects.first()
     links = SocialLinks.objects.first()
-    metaTags = MetaTags.objects.first()
+    metaTags = HomeMetaTags.objects.first()
 
     if contacts == None:
         contacts = Contacts(map_adress = 'adress', phone = '777', email = 'email')

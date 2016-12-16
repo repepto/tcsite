@@ -3,10 +3,11 @@ from django.dispatch import receiver
 
 from works.signals import clear_view_cache
 
-from .models import Contacts, MetaTags, SocialLinks
+from .models import Contacts, SocialLinks
+from homepage.models import HomeMetaTags
 
 @receiver(post_save, sender = Contacts)
-@receiver(post_save, sender = MetaTags)
+@receiver(post_save, sender = HomeMetaTags)
 @receiver(post_save, sender = SocialLinks)
 @receiver(post_delete, sender = SocialLinks)
 def clear_contact_cache(sender, **kwargs):
