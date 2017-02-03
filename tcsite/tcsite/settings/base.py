@@ -66,7 +66,7 @@ CKEDITOR_CONFIGS = {
 }
 
 DISQUS_API_KEY = 'MG8zUtnOVEOOLkBrAdzMRd1m7EE8Q6ETP6lah7OcZCfw6DMacEBPGfZbrQOkRjt5'
-DISQUS_WEBSITE_SHORTNAME = 'salonexpert'
+DISQUS_WEBSITE_SHORTNAME = 'мастерская №8'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
