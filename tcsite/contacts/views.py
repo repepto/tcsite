@@ -15,9 +15,12 @@ def contacts(request):
     return render(request, 'contacts/contacts.html', {'contact':contact})
 
 def send(request):
+
     email = Contacts.objects.first().email
-    send_mail('Site message', request.POST.get('cmessage'), request.POST.get('cemail'),
-              [email], fail_silently=False);
+    sender = request.POST.get('cemail')
+    message = 'NAME: ' + request.POST.get('cname') + '\n' + 'E-MAIL: ' + sender + '\n\n' + request.POST.get('cmessage')
+
+    send_mail('Site message', message, sender, [email], fail_silently=False)
 
     data = {'status':'ok'}
 
